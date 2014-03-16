@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ShapeCollectionSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AxisAlignedRectangleSaves>
+    <AxisAlignedRectangleSave>
+      <X>464.27655</X>
+      <Y>-466.363953</Y>
+      <Z>0</Z>
+      <ScaleX>31.7096634</ScaleX>
+      <ScaleY>28.058466</ScaleY>
+      <Name>Siguiente</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>-466.040924</X>
+      <Y>-463.092133</Y>
+      <Z>0</Z>
+      <ScaleX>33.7195358</ScaleX>
+      <ScaleY>29.0022678</ScaleY>
+      <Name>MenuGlosario</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+  </AxisAlignedRectangleSaves>
+  <AxisAlignedCubeSaves />
+  <PolygonSaves />
+  <CircleSaves />
+  <SphereSaves />
+</ShapeCollectionSave>

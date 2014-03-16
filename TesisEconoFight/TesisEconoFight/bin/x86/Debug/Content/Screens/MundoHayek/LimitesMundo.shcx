@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ShapeCollectionSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AxisAlignedRectangleSaves>
+    <AxisAlignedRectangleSave>
+      <X>-4</X>
+      <Y>-250</Y>
+      <Z>0</Z>
+      <ScaleX>407</ScaleX>
+      <ScaleY>16.4</ScaleY>
+      <Name>Piso</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>-405</X>
+      <Y>-1</Y>
+      <Z>0</Z>
+      <ScaleX>7.25</ScaleX>
+      <ScaleY>312.7</ScaleY>
+      <Name>ParedIzquierda</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>405</X>
+      <Y>-1</Y>
+      <Z>0</Z>
+      <ScaleX>7.25</ScaleX>
+      <ScaleY>312.7</ScaleY>
+      <Name>ParedDerecha1</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+  </AxisAlignedRectangleSaves>
+  <AxisAlignedCubeSaves />
+  <PolygonSaves />
+  <CircleSaves />
+  <SphereSaves />
+</ShapeCollectionSave>

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ShapeCollectionSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AxisAlignedRectangleSaves>
+    <AxisAlignedRectangleSave>
+      <X>-269.500031</X>
+      <Y>39.5</Y>
+      <Z>0</Z>
+      <ScaleX>57.60081</ScaleX>
+      <ScaleY>69.253685</ScaleY>
+      <Name>Hayek</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>-95.89999</X>
+      <Y>35.1999969</Y>
+      <Z>0</Z>
+      <ScaleX>57.57861</ScaleX>
+      <ScaleY>74.17769</ScaleY>
+      <Name>Keynes</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>84.60009</X>
+      <Y>37.3999252</Y>
+      <Z>0</Z>
+      <ScaleX>55.0200348</ScaleX>
+      <ScaleY>72.17163</ScaleY>
+      <Name>Malthus</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>263.800049</X>
+      <Y>40.7000046</Y>
+      <Z>0</Z>
+      <ScaleX>57.4110146</ScaleX>
+      <ScaleY>72.8567047</ScaleY>
+      <Name>Smith</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>-365.100067</X>
+      <Y>-270.9001</Y>
+      <Z>0</Z>
+      <ScaleX>18</ScaleX>
+      <ScaleY>18</ScaleY>
+      <Name>Character</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>362.999756</X>
+      <Y>-271.1001</Y>
+      <Z>0</Z>
+      <ScaleX>18</ScaleX>
+      <ScaleY>18</ScaleY>
+      <Name>Pelea</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+  </AxisAlignedRectangleSaves>
+  <AxisAlignedCubeSaves />
+  <PolygonSaves />
+  <CircleSaves />
+  <SphereSaves />
+</ShapeCollectionSave>

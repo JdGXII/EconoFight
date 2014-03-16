@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{64B23BEF-DD26-4B81-AAA6-D9F46B0140B4}</ProjectGuid>
+    <ProjectTypeGuids>{96E2B04D-8817-42c6-938A-82C39BA4D311};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <ContentRootDirectory>Content</ContentRootDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>FrbXna4Test1Content</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FlatRedBall">
+      <HintPath>..\TesisEconoFight\Libraries\Xna4Pc\FlatRedBall.dll</HintPath>
+    </Reference>
+    <Reference Include="FlatRedBall.Content">
+      <HintPath>..\TesisEconoFight\Libraries\Xna4Pc\FlatRedBall.Content.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.EffectImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.FBXImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.TextureImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.XImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.AudioImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities\BarraSensorial\AnimacionOrden.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionOrden</Name>
+    </None>
+    <None Include="Entities\BarraSensorial\barra hayek 1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>barra hayek 1</Name>
+    </None>
+    <None Include="Entities\BarraSensorial\barra hayek 2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>barra hayek 2</Name>
+    </None>
+    <None Include="Entities\BarraSensorial\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\DoubleKOText\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Fetoyectil\AnimacionFetal.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionFetal</Name>
+    </None>
+    <None Include="Entities\Fetoyectil\feto png 64 x 64 intocable! - copy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>feto png 64 x 64 intocable! - copy</Name>
+    </None>
+    <None Include="Entities\Fetoyectil\feto png 64 x 64 intocable!.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>feto png 64 x 64 intocable!</Name>
+    </None>
+    <None Include="Entities\Fetoyectil\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Fist1\AnimacionFist1.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionFist1</Name>
+    </None>
+    <None Include="Entities\Fist1\mano png 256 x 128 intocable.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>mano png 256 x 128 intocable</Name>
+    </None>
+    <None Include="Entities\Fist1\puño png 128 x 256 intocable!.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>puño png 128 x 256 intocable!</Name>
+    </None>
+    <None Include="Entities\Fist1\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Fisto\AnimacionFisto.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionFisto</Name>
+    </None>
+    <None Include="Entities\Fisto\puño png 128 x 256 intocable!.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>puño png 128 x 256 intocable!</Name>
+    </None>
+    <None Include="Entities\Fisto\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Hayek\AnimacionHayek.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionHayek</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-1</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-10</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-11</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-12</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-13 - copy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-13 - copy</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-13</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-14</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-15</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-16</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-17.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-17</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-18.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-18</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-19.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-19</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-2</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-20</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-3</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-4</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-5</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-6</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-7</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-8</Name>
+    </None>
+    <None Include="Entities\Hayek\hayek-9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-9</Name>
+    </None>
+    <None Include="Entities\Hayek\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Keynes\AnimacionKeynes.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionKeynes</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 1</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 10</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 11 - copy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 11 - copy</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 11</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 12</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 13</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 14</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 15</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 16</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 17.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 17</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 18.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 18</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 2</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 3</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 4</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 5</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 6</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 7</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 8</Name>
+    </None>
+    <None Include="Entities\Keynes\keynes 9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>keynes 9</Name>
+    </None>
+    <None Include="Entities\Keynes\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Kursor\AnimacionCursor.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionCursor</Name>
+    </None>
+    <None Include="Entities\Kursor\moneda 1 moneda png 64 x 64 intocable!.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>moneda 1 moneda png 64 x 64 intocable!</Name>
+    </None>
+    <None Include="Entities\Kursor\moneda1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>moneda1</Name>
+    </None>
+    <None Include="Entities\Kursor\moneda2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>moneda2</Name>
+    </None>
+    <None Include="Entities\Kursor\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Malnutrido\AnimacionMalnutrido.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionMalnutrido</Name>
+    </None>
+    <None Include="Entities\Malnutrido\desnutrido 1 escala.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>desnutrido 1 escala</Name>
+    </None>
+    <None Include="Entities\Malnutrido\desnutrido 2 escala.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>desnutrido 2 escala</Name>
+    </None>
+    <None Include="Entities\Malnutrido\hayek-13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hayek-13</Name>
+    </None>
+    <None Include="Entities\Malnutrido\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Malthus\AnimacionMalthus.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionMalthus</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 1</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 10</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 11</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 12</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 13</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 14</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 15</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 16</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 17.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 17</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 18.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 18</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 19.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 19</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 2 (2).png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 2 (2)</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 20</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 21 - copy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 21 - copy</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 21.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 21</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 3</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 4</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 5</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 6</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 7</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 8</Name>
+    </None>
+    <None Include="Entities\Malthus\malthus 9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>malthus 9</Name>
+    </None>
+    <None Include="Entities\Malthus\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\P1WinText\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\P2WinText\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\PauseText\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Precios\AnimacionPrecio.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionPrecio</Name>
+    </None>
+    <None Include="Entities\Precios\flecha png 64 x 64 intocable!.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>flecha png 64 x 64 intocable!</Name>
+    </None>
+    <None Include="Entities\Precios\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Proyectil\AnimacionProyectil.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionProyectil</Name>
+    </None>
+    <None Include="Entities\Proyectil\billete 1 dolar png 128 x 64 intocable.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>billete 1 dolar png 128 x 64 intocable</Name>
+    </None>
+    <None Include="Entities\Proyectil\billete 10 png 128 x 64 intocable.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>billete 10 png 128 x 64 intocable</Name>
+    </None>
+    <None Include="Entities\Proyectil\billete 100 png 156 x 64 intocable.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>billete 100 png 156 x 64 intocable</Name>
+    </None>
+    <None Include="Entities\Proyectil\moneda 1 moneda png 64 x 64 intocable!.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>moneda 1 moneda png 64 x 64 intocable!</Name>
+    </None>
+    <None Include="Entities\Proyectil\moneda 2 moneda png 64 x 64 intocable!.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>moneda 2 moneda png 64 x 64 intocable!</Name>
+    </None>
+    <None Include="Entities\Proyectil\moneda horizontal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>moneda horizontal</Name>
+    </None>
+    <None Include="Entities\Proyectil\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Smith\AnimacionSmith.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionSmith</Name>
+    </None>
+    <None Include="Entities\Smith\caminar 1 smith arreglado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>caminar 1 smith arreglado</Name>
+    </None>
+    <None Include="Entities\Smith\caminar 2 smith arreglado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>caminar 2 smith arreglado</Name>
+    </None>
+    <None Include="Entities\Smith\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Smith\smith 1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 1</Name>
+    </None>
+    <None Include="Entities\Smith\smith 10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 10</Name>
+    </None>
+    <None Include="Entities\Smith\smith 11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 11</Name>
+    </None>
+    <None Include="Entities\Smith\smith 12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 12</Name>
+    </None>
+    <None Include="Entities\Smith\smith 13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 13</Name>
+    </None>
+    <None Include="Entities\Smith\smith 2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 2</Name>
+    </None>
+    <None Include="Entities\Smith\smith 3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 3</Name>
+    </None>
+    <None Include="Entities\Smith\smith 4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 4</Name>
+    </None>
+    <None Include="Entities\Smith\smith 5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 5</Name>
+    </None>
+    <None Include="Entities\Smith\smith 6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 6</Name>
+    </None>
+    <None Include="Entities\Smith\smith 7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 7</Name>
+    </None>
+    <None Include="Entities\Smith\smith 8 - copy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 8 - copy</Name>
+    </None>
+    <None Include="Entities\Smith\smith 8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 8</Name>
+    </None>
+    <None Include="Entities\Smith\smith 9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>smith 9</Name>
+    </None>
+    <None Include="Entities\SuperAtaque\mano png 256 x 128 intocable.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>mano png 256 x 128 intocable</Name>
+    </None>
+    <None Include="Entities\SuperAtaque\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\SuperAtaque\SuperAnimacion.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SuperAnimacion</Name>
+    </None>
+    <None Include="Entities\SuperAtaque\superhayek.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>superhayek</Name>
+    </None>
+    <None Include="Entities\SuperAtaque\superkeynes.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>superkeynes</Name>
+    </None>
+    <None Include="Entities\SuperAtaque\supermalthus.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>supermalthus</Name>
+    </None>
+    <None Include="Entities\SuperAtaque\supersmith.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>supersmith</Name>
+    </None>
+    <None Include="Entities\TasaInteres\barra keynes 1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>barra keynes 1</Name>
+    </None>
+    <None Include="Entities\TasaInteres\barra keynes 2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>barra keynes 2</Name>
+    </None>
+    <None Include="Entities\TasaInteres\barra keynes 3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>barra keynes 3</Name>
+    </None>
+    <None Include="Entities\TasaInteres\InteresAnimacion.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>InteresAnimacion</Name>
+    </None>
+    <None Include="Entities\TasaInteres\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\CharSelect\cara hayek.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>cara hayek</Name>
+    </None>
+    <None Include="Screens\CharSelect\cara keynes.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>cara keynes</Name>
+    </None>
+    <None Include="Screens\CharSelect\cara malthus.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>cara malthus</Name>
+    </None>
+    <None Include="Screens\CharSelect\cara smith.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>cara smith</Name>
+    </None>
+    <None Include="Screens\CharSelect\EscogerChar.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EscogerChar</Name>
+    </None>
+    <None Include="Screens\CharSelect\pantalla seleccion de personajes.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla seleccion de personajes</Name>
+    </None>
+    <None Include="Screens\CharSelect\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\CharSelect\SeleccionPersonaje.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SeleccionPersonaje</Name>
+    </None>
+    <None Include="Screens\GameOver\game over.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>game over</Name>
+    </None>
+    <None Include="Screens\GameOver\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\GameScreen\AnimacionMundo.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionMundo</Name>
+    </None>
+    <None Include="Screens\GameScreen\federalreserve.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>federalreserve</Name>
+    </None>
+    <None Include="Screens\GameScreen\LimitesMundo.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LimitesMundo</Name>
+    </None>
+    <None Include="Screens\GameScreen\london-bridge.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>london-bridge</Name>
+    </None>
+    <None Include="Screens\GameScreen\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\GameScreen\ship painting.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ship painting</Name>
+    </None>
+    <None Include="Screens\GameScreen\universitätfreiburg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>universitätfreiburg</Name>
+    </None>
+    <None Include="Screens\GlosarioHayek\AnimacionPantalla.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionPantalla</Name>
+    </None>
+    <None Include="Screens\GlosarioHayek\glosario hayek 1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario hayek 1</Name>
+    </None>
+    <None Include="Screens\GlosarioHayek\glosario hayek 2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario hayek 2</Name>
+    </None>
+    <None Include="Screens\GlosarioHayek\glosario hayek 3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario hayek 3</Name>
+    </None>
+    <None Include="Screens\GlosarioHayek\Opciones.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Opciones</Name>
+    </None>
+    <None Include="Screens\GlosarioHayek\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\GlosarioKeynes\AnimacionMundo.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionMundo</Name>
+    </None>
+    <None Include="Screens\GlosarioKeynes\glosario keynes 1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario keynes 1</Name>
+    </None>
+    <None Include="Screens\GlosarioKeynes\glosario keynes 2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario keynes 2</Name>
+    </None>
+    <None Include="Screens\GlosarioKeynes\glosario keynes 3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario keynes 3</Name>
+    </None>
+    <None Include="Screens\GlosarioKeynes\Opciones.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Opciones</Name>
+    </None>
+    <None Include="Screens\GlosarioKeynes\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\GlosarioMalthus\AnimacionMundo.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionMundo</Name>
+    </None>
+    <None Include="Screens\GlosarioMalthus\glosario malthus 1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario malthus 1</Name>
+    </None>
+    <None Include="Screens\GlosarioMalthus\glosario malthus 2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario malthus 2</Name>
+    </None>
+    <None Include="Screens\GlosarioMalthus\glosario malthus 3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario malthus 3</Name>
+    </None>
+    <None Include="Screens\GlosarioMalthus\Opciones.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Opciones</Name>
+    </None>
+    <None Include="Screens\GlosarioMalthus\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\GlosarioSistemasJuego\AnimacionPantalla.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionPantalla</Name>
+    </None>
+    <None Include="Screens\GlosarioSistemasJuego\glosario sistema de juegos 1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario sistema de juegos 1</Name>
+    </None>
+    <None Include="Screens\GlosarioSistemasJuego\glosario sistemas de juego 2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario sistemas de juego 2</Name>
+    </None>
+    <None Include="Screens\GlosarioSistemasJuego\glosario sistemas de juego 3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario sistemas de juego 3</Name>
+    </None>
+    <None Include="Screens\GlosarioSistemasJuego\glosario sistemas de juego 4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario sistemas de juego 4</Name>
+    </None>
+    <None Include="Screens\GlosarioSistemasJuego\Opciones.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Opciones</Name>
+    </None>
+    <None Include="Screens\GlosarioSistemasJuego\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\GlosarioSmith\AnimacionMundo.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionMundo</Name>
+    </None>
+    <None Include="Screens\GlosarioSmith\glosario smith 1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario smith 1</Name>
+    </None>
+    <None Include="Screens\GlosarioSmith\glosario smith 2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario smith 2</Name>
+    </None>
+    <None Include="Screens\GlosarioSmith\glosario smith 3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>glosario smith 3</Name>
+    </None>
+    <None Include="Screens\GlosarioSmith\Opciones.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Opciones</Name>
+    </None>
+    <None Include="Screens\GlosarioSmith\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\MenuGlosario\AltsGlosario.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AltsGlosario</Name>
+    </None>
+    <None Include="Screens\MenuGlosario\menu glosario.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>menu glosario</Name>
+    </None>
+    <None Include="Screens\MenuGlosario\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\MenuPrincipal\Alternativas.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alternativas</Name>
+    </None>
+    <None Include="Screens\MenuPrincipal\main menu.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>main menu</Name>
+    </None>
+    <None Include="Screens\MenuPrincipal\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\MundoHayek\LimitesMundo.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LimitesMundo</Name>
+    </None>
+    <None Include="Screens\MundoHayek\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\MundoHayek\universitätfreiburg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>universitätfreiburg</Name>
+    </None>
+    <None Include="Screens\MundoKeynes\federalreserve.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>federalreserve</Name>
+    </None>
+    <None Include="Screens\MundoKeynes\LimitesMundo.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LimitesMundo</Name>
+    </None>
+    <None Include="Screens\MundoKeynes\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\MundoMalthus\LimitesMundo.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LimitesMundo</Name>
+    </None>
+    <None Include="Screens\MundoMalthus\london-bridge.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>london-bridge</Name>
+    </None>
+    <None Include="Screens\MundoMalthus\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\MundoSmith\LimitesMundo.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LimitesMundo</Name>
+    </None>
+    <None Include="Screens\MundoSmith\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\MundoSmith\ship painting.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ship painting</Name>
+    </None>
+    <None Include="Screens\SplashScreen\frblogo512.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>frblogo512</Name>
+    </None>
+    <None Include="Screens\SplashScreen\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\StageSelect\AnimarSeleccion.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimarSeleccion</Name>
+    </None>
+    <None Include="Screens\StageSelect\federalreserve.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>federalreserve</Name>
+    </None>
+    <None Include="Screens\StageSelect\london-bridge.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>london-bridge</Name>
+    </None>
+    <None Include="Screens\StageSelect\pantalla mundos 800 x 600.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla mundos 800 x 600</Name>
+    </None>
+    <None Include="Screens\StageSelect\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\StageSelect\SeleccionStage.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SeleccionStage</Name>
+    </None>
+    <None Include="Screens\StageSelect\ship painting.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ship painting</Name>
+    </None>
+    <None Include="Screens\StageSelect\universitätfreiburg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>universitätfreiburg</Name>
+    </None>
+    <None Include="Screens\TutorialHayek\AnimacionPantalla.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionPantalla</Name>
+    </None>
+    <None Include="Screens\TutorialHayek\pantalla comando hayek.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla comando hayek</Name>
+    </None>
+    <None Include="Screens\TutorialHayek\pantalla tutorial hayek 1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla tutorial hayek 1</Name>
+    </None>
+    <None Include="Screens\TutorialHayek\pantalla tutorial hayek 2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla tutorial hayek 2</Name>
+    </None>
+    <None Include="Screens\TutorialHayek\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\TutorialKeynes\AnimacionMundo.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionMundo</Name>
+    </None>
+    <None Include="Screens\TutorialKeynes\pantalla comando keynes.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla comando keynes</Name>
+    </None>
+    <None Include="Screens\TutorialKeynes\pantalla tutorial keynes.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla tutorial keynes</Name>
+    </None>
+    <None Include="Screens\TutorialKeynes\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\TutorialMalthus\AnimacionMundo.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionMundo</Name>
+    </None>
+    <None Include="Screens\TutorialMalthus\pantalla comando malthus.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla comando malthus</Name>
+    </None>
+    <None Include="Screens\TutorialMalthus\pantalla tutorial malthus.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla tutorial malthus</Name>
+    </None>
+    <None Include="Screens\TutorialMalthus\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\TutorialSmith\AnimacionMundo.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimacionMundo</Name>
+    </None>
+    <None Include="Screens\TutorialSmith\pantalla comando smith.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla comando smith</Name>
+    </None>
+    <None Include="Screens\TutorialSmith\pantalla tutorial smith.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pantalla tutorial smith</Name>
+    </None>
+    <None Include="Screens\TutorialSmith\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="boss battle.mp3">
+      <Name>boss battle</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="boss intro.mp3">
+      <Name>boss intro</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="cancion 1.mp3">
+      <Name>cancion 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Cancion pelea.mp3">
+      <Name>Cancion pelea</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="intro.mp3">
+      <Name>intro</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
+  <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

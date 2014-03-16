@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SpriteEditorScene xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Sprite>
+    <ScaleX>400</ScaleX>
+    <ScaleY>300</ScaleY>
+    <Name>pantalla seleccion de personajes1</Name>
+    <Texture>pantalla seleccion de personajes.jpg</Texture>
+    <ConstantPixelSize>0.5</ConstantPixelSize>
+  </Sprite>
+  <Sprite>
+    <X>51.7002029</X>
+    <Y>187.000015</Y>
+    <ScaleX>100</ScaleX>
+    <ScaleY>100</ScaleY>
+    <Name>cara hayek1</Name>
+    <Animate>true</Animate>
+    <CurrentChain>0</CurrentChain>
+    <AnimationChainsFile>seleccionpersonaje.achx</AnimationChainsFile>
+    <ConstantPixelSize>0.5</ConstantPixelSize>
+  </Sprite>
+  <Sprite>
+    <X>53.9000244</X>
+    <Y>-154.000076</Y>
+    <ScaleX>100</ScaleX>
+    <ScaleY>100</ScaleY>
+    <Name>cara hayek2</Name>
+    <Animate>true</Animate>
+    <CurrentChain>0</CurrentChain>
+    <AnimationChainsFile>seleccionpersonaje.achx</AnimationChainsFile>
+    <ConstantPixelSize>0.5</ConstantPixelSize>
+  </Sprite>
+  <Camera>
+    <X>0</X>
+    <Y>0</Y>
+    <Z>-40</Z>
+    <Orthogonal>false</Orthogonal>
+    <OrthogonalHeight>600</OrthogonalHeight>
+    <OrthogonalWidth>-1</OrthogonalWidth>
+    <NearClipPlane>1</NearClipPlane>
+    <FarClipPlane>1000</FarClipPlane>
+  </Camera>
+  <Snapping>false</Snapping>
+  <PixelSize>0</PixelSize>
+  <AssetsRelativeToSceneFile>true</AssetsRelativeToSceneFile>
+  <CoordinateSystem>LeftHanded</CoordinateSystem>
+</SpriteEditorScene>

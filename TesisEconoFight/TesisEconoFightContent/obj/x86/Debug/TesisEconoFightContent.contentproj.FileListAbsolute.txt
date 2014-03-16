@@ -1,0 +1,2 @@
+C:\FlatRedBallProjects\TesisEconoFight\TesisEconoFight\TesisEconoFightContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFightContent\obj\x86\Debug\TesisEconoFightContent.contentprojResolveAssemblyReference.cache

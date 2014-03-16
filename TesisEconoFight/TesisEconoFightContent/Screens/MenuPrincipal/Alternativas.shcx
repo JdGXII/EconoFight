@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ShapeCollectionSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AxisAlignedRectangleSaves>
+    <AxisAlignedRectangleSave>
+      <X>-10.9999962</X>
+      <Y>-16.9999962</Y>
+      <Z>0</Z>
+      <ScaleX>117.909439</ScaleX>
+      <ScaleY>30.02028</ScaleY>
+      <Name>Arcade</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>-6.000001</X>
+      <Y>-204.000046</Y>
+      <Z>0</Z>
+      <ScaleX>139.454788</ScaleX>
+      <ScaleY>30.2451572</ScaleY>
+      <Name>Glosario</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>-12</X>
+      <Y>-112.000038</Y>
+      <Z>0</Z>
+      <ScaleX>125.880486</ScaleX>
+      <ScaleY>28.6497231</ScaleY>
+      <Name>Vs</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+  </AxisAlignedRectangleSaves>
+  <AxisAlignedCubeSaves />
+  <PolygonSaves />
+  <CircleSaves />
+  <SphereSaves />
+</ShapeCollectionSave>

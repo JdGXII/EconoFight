@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>boss battle.mp3</Source>
+      <Name>boss battle</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\boss battle.xnb</Output>
+      <Extra>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\boss battle.wma</Extra>
+      <Time>2012-06-29T05:11:12-04:30</Time>
+    </Item>
+    <Item>
+      <Source>boss intro.mp3</Source>
+      <Name>boss intro</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\boss intro.xnb</Output>
+      <Extra>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\boss intro.wma</Extra>
+      <Time>2012-06-29T05:11:12-04:30</Time>
+    </Item>
+    <Item>
+      <Source>cancion 1.mp3</Source>
+      <Name>cancion 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\cancion 1.xnb</Output>
+      <Extra>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\cancion 1.wma</Extra>
+      <Time>2012-06-29T05:11:12-04:30</Time>
+    </Item>
+    <Item>
+      <Source>Cancion pelea.mp3</Source>
+      <Name>Cancion pelea</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\Cancion pelea.xnb</Output>
+      <Extra>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\Cancion pelea.wma</Extra>
+      <Time>2012-06-29T05:11:12-04:30</Time>
+    </Item>
+    <Item>
+      <Source>intro.mp3</Source>
+      <Name>intro</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\intro.xnb</Output>
+      <Extra>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\intro.wma</Extra>
+      <Time>2012-06-29T05:11:12-04:30</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFightContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFightContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\Libraries\Xna4Pc\FlatRedBall.dll</Key>
+        <Value>2013-01-18T16:26:42.7935939-04:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Users\jralz_000\Documents\TesisEconoFight\TesisEconoFight\TesisEconoFight\Libraries\Xna4Pc\FlatRedBall.Content.dll</Key>
+        <Value>2013-01-18T16:26:20.5574956-04:30</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-01-18T16:10:42.73508-04:30</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

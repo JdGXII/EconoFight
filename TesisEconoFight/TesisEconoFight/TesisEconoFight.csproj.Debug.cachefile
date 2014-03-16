@@ -1,0 +1,242 @@
+Content\boss battle.xnb
+Content\boss intro.xnb
+Content\cancion 1.xnb
+Content\Cancion pelea.xnb
+Content\intro.xnb
+Content\boss battle.wma
+Content\boss intro.wma
+Content\cancion 1.wma
+Content\Cancion pelea.wma
+Content\intro.wma
+Content\Entities\BarraSensorial\AnimacionOrden.achx
+Content\Entities\BarraSensorial\barra hayek 1.png
+Content\Entities\BarraSensorial\barra hayek 2.png
+Content\Entities\BarraSensorial\SceneFile.scnx
+Content\Entities\DoubleKOText\SceneFile.scnx
+Content\Entities\Fetoyectil\AnimacionFetal.achx
+Content\Entities\Fetoyectil\feto png 64 x 64 intocable! - copy.png
+Content\Entities\Fetoyectil\feto png 64 x 64 intocable!.png
+Content\Entities\Fetoyectil\SceneFile.scnx
+Content\Entities\Fist1\AnimacionFist1.achx
+Content\Entities\Fist1\mano png 256 x 128 intocable.png
+Content\Entities\Fist1\puño png 128 x 256 intocable!.png
+Content\Entities\Fist1\SceneFile.scnx
+Content\Entities\Fisto\AnimacionFisto.achx
+Content\Entities\Fisto\puño png 128 x 256 intocable!.png
+Content\Entities\Fisto\SceneFile.scnx
+Content\Entities\Hayek\AnimacionHayek.achx
+Content\Entities\Hayek\hayek-1.png
+Content\Entities\Hayek\hayek-10.png
+Content\Entities\Hayek\hayek-11.png
+Content\Entities\Hayek\hayek-12.png
+Content\Entities\Hayek\hayek-13 - copy.png
+Content\Entities\Hayek\hayek-13.png
+Content\Entities\Hayek\hayek-14.png
+Content\Entities\Hayek\hayek-15.png
+Content\Entities\Hayek\hayek-16.png
+Content\Entities\Hayek\hayek-17.png
+Content\Entities\Hayek\hayek-18.png
+Content\Entities\Hayek\hayek-19.png
+Content\Entities\Hayek\hayek-2.png
+Content\Entities\Hayek\hayek-20.png
+Content\Entities\Hayek\hayek-3.png
+Content\Entities\Hayek\hayek-4.png
+Content\Entities\Hayek\hayek-5.png
+Content\Entities\Hayek\hayek-6.png
+Content\Entities\Hayek\hayek-7.png
+Content\Entities\Hayek\hayek-8.png
+Content\Entities\Hayek\hayek-9.png
+Content\Entities\Hayek\SceneFile.scnx
+Content\Entities\Keynes\AnimacionKeynes.achx
+Content\Entities\Keynes\keynes 1.png
+Content\Entities\Keynes\keynes 10.png
+Content\Entities\Keynes\keynes 11 - copy.png
+Content\Entities\Keynes\keynes 11.png
+Content\Entities\Keynes\keynes 12.png
+Content\Entities\Keynes\keynes 13.png
+Content\Entities\Keynes\keynes 14.png
+Content\Entities\Keynes\keynes 15.png
+Content\Entities\Keynes\keynes 16.png
+Content\Entities\Keynes\keynes 17.png
+Content\Entities\Keynes\keynes 18.png
+Content\Entities\Keynes\keynes 2.png
+Content\Entities\Keynes\keynes 3.png
+Content\Entities\Keynes\keynes 4.png
+Content\Entities\Keynes\keynes 5.png
+Content\Entities\Keynes\keynes 6.png
+Content\Entities\Keynes\keynes 7.png
+Content\Entities\Keynes\keynes 8.png
+Content\Entities\Keynes\keynes 9.png
+Content\Entities\Keynes\SceneFile.scnx
+Content\Entities\Kursor\AnimacionCursor.achx
+Content\Entities\Kursor\moneda 1 moneda png 64 x 64 intocable!.png
+Content\Entities\Kursor\moneda1.png
+Content\Entities\Kursor\moneda2.png
+Content\Entities\Kursor\SceneFile.scnx
+Content\Entities\Malnutrido\AnimacionMalnutrido.achx
+Content\Entities\Malnutrido\desnutrido 1 escala.png
+Content\Entities\Malnutrido\desnutrido 2 escala.png
+Content\Entities\Malnutrido\hayek-13.png
+Content\Entities\Malnutrido\SceneFile.scnx
+Content\Entities\Malthus\AnimacionMalthus.achx
+Content\Entities\Malthus\malthus 1.png
+Content\Entities\Malthus\malthus 10.png
+Content\Entities\Malthus\malthus 11.png
+Content\Entities\Malthus\malthus 12.png
+Content\Entities\Malthus\malthus 13.png
+Content\Entities\Malthus\malthus 14.png
+Content\Entities\Malthus\malthus 15.png
+Content\Entities\Malthus\malthus 16.png
+Content\Entities\Malthus\malthus 17.png
+Content\Entities\Malthus\malthus 18.png
+Content\Entities\Malthus\malthus 19.png
+Content\Entities\Malthus\malthus 2 (2).png
+Content\Entities\Malthus\malthus 20.png
+Content\Entities\Malthus\malthus 21 - copy.png
+Content\Entities\Malthus\malthus 21.png
+Content\Entities\Malthus\malthus 3.png
+Content\Entities\Malthus\malthus 4.png
+Content\Entities\Malthus\malthus 5.png
+Content\Entities\Malthus\malthus 6.png
+Content\Entities\Malthus\malthus 7.png
+Content\Entities\Malthus\malthus 8.png
+Content\Entities\Malthus\malthus 9.png
+Content\Entities\Malthus\SceneFile.scnx
+Content\Entities\P1WinText\SceneFile.scnx
+Content\Entities\P2WinText\SceneFile.scnx
+Content\Entities\PauseText\SceneFile.scnx
+Content\Entities\Precios\AnimacionPrecio.achx
+Content\Entities\Precios\flecha png 64 x 64 intocable!.png
+Content\Entities\Precios\SceneFile.scnx
+Content\Entities\Proyectil\AnimacionProyectil.achx
+Content\Entities\Proyectil\billete 1 dolar png 128 x 64 intocable.png
+Content\Entities\Proyectil\billete 10 png 128 x 64 intocable.png
+Content\Entities\Proyectil\billete 100 png 156 x 64 intocable.png
+Content\Entities\Proyectil\moneda 1 moneda png 64 x 64 intocable!.png
+Content\Entities\Proyectil\moneda 2 moneda png 64 x 64 intocable!.png
+Content\Entities\Proyectil\moneda horizontal.png
+Content\Entities\Proyectil\SceneFile.scnx
+Content\Entities\Smith\AnimacionSmith.achx
+Content\Entities\Smith\caminar 1 smith arreglado.png
+Content\Entities\Smith\caminar 2 smith arreglado.png
+Content\Entities\Smith\SceneFile.scnx
+Content\Entities\Smith\smith 1.png
+Content\Entities\Smith\smith 10.png
+Content\Entities\Smith\smith 11.png
+Content\Entities\Smith\smith 12.png
+Content\Entities\Smith\smith 13.png
+Content\Entities\Smith\smith 2.png
+Content\Entities\Smith\smith 3.png
+Content\Entities\Smith\smith 4.png
+Content\Entities\Smith\smith 5.png
+Content\Entities\Smith\smith 6.png
+Content\Entities\Smith\smith 7.png
+Content\Entities\Smith\smith 8 - copy.png
+Content\Entities\Smith\smith 8.png
+Content\Entities\Smith\smith 9.png
+Content\Entities\SuperAtaque\mano png 256 x 128 intocable.png
+Content\Entities\SuperAtaque\SceneFile.scnx
+Content\Entities\SuperAtaque\SuperAnimacion.achx
+Content\Entities\SuperAtaque\superhayek.jpg
+Content\Entities\SuperAtaque\superkeynes.jpg
+Content\Entities\SuperAtaque\supermalthus.jpg
+Content\Entities\SuperAtaque\supersmith.jpg
+Content\Entities\TasaInteres\barra keynes 1.png
+Content\Entities\TasaInteres\barra keynes 2.png
+Content\Entities\TasaInteres\barra keynes 3.png
+Content\Entities\TasaInteres\InteresAnimacion.achx
+Content\Entities\TasaInteres\SceneFile.scnx
+Content\Screens\CharSelect\cara hayek.jpg
+Content\Screens\CharSelect\cara keynes.jpg
+Content\Screens\CharSelect\cara malthus.jpg
+Content\Screens\CharSelect\cara smith.jpg
+Content\Screens\CharSelect\EscogerChar.shcx
+Content\Screens\CharSelect\pantalla seleccion de personajes.jpg
+Content\Screens\CharSelect\SceneFile.scnx
+Content\Screens\CharSelect\SeleccionPersonaje.achx
+Content\Screens\GameOver\game over.jpg
+Content\Screens\GameOver\SceneFile.scnx
+Content\Screens\GameScreen\AnimacionMundo.achx
+Content\Screens\GameScreen\federalreserve.jpg
+Content\Screens\GameScreen\LimitesMundo.shcx
+Content\Screens\GameScreen\london-bridge.jpg
+Content\Screens\GameScreen\SceneFile.scnx
+Content\Screens\GameScreen\ship painting.jpg
+Content\Screens\GameScreen\universitätfreiburg.jpg
+Content\Screens\GlosarioHayek\AnimacionPantalla.achx
+Content\Screens\GlosarioHayek\glosario hayek 1.jpg
+Content\Screens\GlosarioHayek\glosario hayek 2.jpg
+Content\Screens\GlosarioHayek\glosario hayek 3.jpg
+Content\Screens\GlosarioHayek\Opciones.shcx
+Content\Screens\GlosarioHayek\SceneFile.scnx
+Content\Screens\GlosarioKeynes\AnimacionMundo.achx
+Content\Screens\GlosarioKeynes\glosario keynes 1.jpg
+Content\Screens\GlosarioKeynes\glosario keynes 2.jpg
+Content\Screens\GlosarioKeynes\glosario keynes 3.jpg
+Content\Screens\GlosarioKeynes\Opciones.shcx
+Content\Screens\GlosarioKeynes\SceneFile.scnx
+Content\Screens\GlosarioMalthus\AnimacionMundo.achx
+Content\Screens\GlosarioMalthus\glosario malthus 1.jpg
+Content\Screens\GlosarioMalthus\glosario malthus 2.jpg
+Content\Screens\GlosarioMalthus\glosario malthus 3.jpg
+Content\Screens\GlosarioMalthus\Opciones.shcx
+Content\Screens\GlosarioMalthus\SceneFile.scnx
+Content\Screens\GlosarioSistemasJuego\AnimacionPantalla.achx
+Content\Screens\GlosarioSistemasJuego\glosario sistema de juegos 1.jpg
+Content\Screens\GlosarioSistemasJuego\glosario sistemas de juego 2.jpg
+Content\Screens\GlosarioSistemasJuego\glosario sistemas de juego 3.jpg
+Content\Screens\GlosarioSistemasJuego\glosario sistemas de juego 4.jpg
+Content\Screens\GlosarioSistemasJuego\Opciones.shcx
+Content\Screens\GlosarioSistemasJuego\SceneFile.scnx
+Content\Screens\GlosarioSmith\AnimacionMundo.achx
+Content\Screens\GlosarioSmith\glosario smith 1.jpg
+Content\Screens\GlosarioSmith\glosario smith 2.jpg
+Content\Screens\GlosarioSmith\glosario smith 3.jpg
+Content\Screens\GlosarioSmith\Opciones.shcx
+Content\Screens\GlosarioSmith\SceneFile.scnx
+Content\Screens\MenuGlosario\AltsGlosario.shcx
+Content\Screens\MenuGlosario\menu glosario.jpg
+Content\Screens\MenuGlosario\SceneFile.scnx
+Content\Screens\MenuPrincipal\Alternativas.shcx
+Content\Screens\MenuPrincipal\main menu.jpg
+Content\Screens\MenuPrincipal\SceneFile.scnx
+Content\Screens\MundoHayek\LimitesMundo.shcx
+Content\Screens\MundoHayek\SceneFile.scnx
+Content\Screens\MundoHayek\universitätfreiburg.jpg
+Content\Screens\MundoKeynes\federalreserve.jpg
+Content\Screens\MundoKeynes\LimitesMundo.shcx
+Content\Screens\MundoKeynes\SceneFile.scnx
+Content\Screens\MundoMalthus\LimitesMundo.shcx
+Content\Screens\MundoMalthus\london-bridge.jpg
+Content\Screens\MundoMalthus\SceneFile.scnx
+Content\Screens\MundoSmith\LimitesMundo.shcx
+Content\Screens\MundoSmith\SceneFile.scnx
+Content\Screens\MundoSmith\ship painting.jpg
+Content\Screens\SplashScreen\frblogo512.png
+Content\Screens\SplashScreen\SceneFile.scnx
+Content\Screens\StageSelect\AnimarSeleccion.achx
+Content\Screens\StageSelect\federalreserve.jpg
+Content\Screens\StageSelect\london-bridge.jpg
+Content\Screens\StageSelect\pantalla mundos 800 x 600.jpg
+Content\Screens\StageSelect\SceneFile.scnx
+Content\Screens\StageSelect\SeleccionStage.shcx
+Content\Screens\StageSelect\ship painting.jpg
+Content\Screens\StageSelect\universitätfreiburg.jpg
+Content\Screens\TutorialHayek\AnimacionPantalla.achx
+Content\Screens\TutorialHayek\pantalla comando hayek.jpg
+Content\Screens\TutorialHayek\pantalla tutorial hayek 1.jpg
+Content\Screens\TutorialHayek\pantalla tutorial hayek 2.jpg
+Content\Screens\TutorialHayek\SceneFile.scnx
+Content\Screens\TutorialKeynes\AnimacionMundo.achx
+Content\Screens\TutorialKeynes\pantalla comando keynes.jpg
+Content\Screens\TutorialKeynes\pantalla tutorial keynes.jpg
+Content\Screens\TutorialKeynes\SceneFile.scnx
+Content\Screens\TutorialMalthus\AnimacionMundo.achx
+Content\Screens\TutorialMalthus\pantalla comando malthus.jpg
+Content\Screens\TutorialMalthus\pantalla tutorial malthus.jpg
+Content\Screens\TutorialMalthus\SceneFile.scnx
+Content\Screens\TutorialSmith\AnimacionMundo.achx
+Content\Screens\TutorialSmith\pantalla comando smith.jpg
+Content\Screens\TutorialSmith\pantalla tutorial smith.jpg
+Content\Screens\TutorialSmith\SceneFile.scnx
+redball.BMP
