@@ -217,6 +217,7 @@
     </Compile>
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GlobalData.cs" />
+    <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\IPoolable.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -278,8 +279,6 @@
     <Compile Include="Screens\MundoSmith.Generated.cs">
       <DependentUpon>MundoSmith.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Screen.cs" />
-    <Compile Include="Screens\ScreenManager.cs" />
     <Compile Include="Screens\SplashScreen.cs" />
     <Compile Include="Screens\SplashScreen.Generated.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>

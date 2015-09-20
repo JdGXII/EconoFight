@@ -12,7 +12,7 @@ using FlatRedBall;
 using FlatRedBall.Graphics;
 using FlatRedBall.Utilities;
 
-using TesisEconoFight.Screens;
+using FlatRedBall.Screens;
 
 namespace TesisEconoFight
 {
@@ -34,8 +34,9 @@ namespace TesisEconoFight
         {
             Renderer.UseRenderTargets = false;
             FlatRedBallServices.InitializeFlatRedBall(this, graphics);
-			CameraSetup.SetupCamera(SpriteManager.Camera);
+			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
+
 
 			FlatRedBall.Screens.ScreenManager.Start(typeof(TesisEconoFight.Screens.SplashScreen));
 

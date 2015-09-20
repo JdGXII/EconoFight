@@ -1,44 +1,23 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using FlatRedBall.Math.Geometry;
-using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Input;
-using FlatRedBall.IO;
-using FlatRedBall.Instructions;
-using FlatRedBall.Math.Splines;
-using FlatRedBall.Utilities;
-using BitmapFont = FlatRedBall.Graphics.BitmapFont;
+#if ANDROID || IOS
+#define REQUIRES_PRIMARY_THREAD_LOADING
+#endif
 
-using Cursor = FlatRedBall.Gui.Cursor;
-using GuiManager = FlatRedBall.Gui.GuiManager;
-
-#if XNA4 || WINDOWS_8
 using Color = Microsoft.Xna.Framework.Color;
-#elif FRB_MDX
-using Color = System.Drawing.Color;
-#else
-using Color = Microsoft.Xna.Framework.Graphics.Color;
-#endif
-
-#if FRB_XNA || SILVERLIGHT
-using Keys = Microsoft.Xna.Framework.Input.Keys;
-using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
-using Microsoft.Xna.Framework.Media;
-#endif
 
 // Generated Usings
 using TesisEconoFight.Entities;
 using FlatRedBall;
 using FlatRedBall.Screens;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Graphics.Animation;
 
 namespace TesisEconoFight.Screens
 {
-	public partial class GameScreen : Screen
+	public partial class GameScreen : FlatRedBall.Screens.Screen
 	{
 		// Generated Fields
 		#if DEBUG
@@ -54,11 +33,11 @@ namespace TesisEconoFight.Screens
 			MundoSmith = 5
 		}
 		protected int mCurrentState = 0;
-		public VariableState CurrentState
+		public Screens.GameScreen.VariableState CurrentState
 		{
 			get
 			{
-				if (Enum.IsDefined(typeof(VariableState), mCurrentState))
+				if (System.Enum.IsDefined(typeof(VariableState), mCurrentState))
 				{
 					return (VariableState)mCurrentState;
 				}
@@ -91,11 +70,11 @@ namespace TesisEconoFight.Screens
 				}
 			}
 		}
-		private FlatRedBall.Math.Geometry.ShapeCollection LimitesMundo;
-		private FlatRedBall.Scene SceneFile;
-		private FlatRedBall.Graphics.Animation.AnimationChainList AnimacionMundo;
+		protected FlatRedBall.Math.Geometry.ShapeCollection LimitesMundo;
+		protected FlatRedBall.Scene SceneFile;
+		protected FlatRedBall.Graphics.Animation.AnimationChainList AnimacionMundo;
 		
-		private PositionedObjectList<Player> ListaJugadores;
+		private FlatRedBall.Math.PositionedObjectList<TesisEconoFight.Entities.Player> ListaJugadores;
 		private TesisEconoFight.Entities.PauseText PauseTextInstance;
 		private FlatRedBall.Sprite Fondo;
 		private TesisEconoFight.Entities.P1WinText P1WinTextInstance;
@@ -122,19 +101,20 @@ namespace TesisEconoFight.Screens
         {
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			if (!FlatRedBallServices.IsLoaded<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/gamescreen/limitesmundo.shcx", ContentManagerName))
+			if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/gamescreen/limitesmundo.shcx", ContentManagerName))
 			{
 			}
-			LimitesMundo = FlatRedBallServices.Load<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/gamescreen/limitesmundo.shcx", ContentManagerName);
-			if (!FlatRedBallServices.IsLoaded<FlatRedBall.Scene>(@"content/screens/gamescreen/scenefile.scnx", ContentManagerName))
+			LimitesMundo = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/gamescreen/limitesmundo.shcx", ContentManagerName);
+			if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Scene>(@"content/screens/gamescreen/scenefile.scnx", ContentManagerName))
 			{
 			}
-			SceneFile = FlatRedBallServices.Load<FlatRedBall.Scene>(@"content/screens/gamescreen/scenefile.scnx", ContentManagerName);
-			if (!FlatRedBallServices.IsLoaded<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/animacionmundo.achx", ContentManagerName))
+			SceneFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Scene>(@"content/screens/gamescreen/scenefile.scnx", ContentManagerName);
+			if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/animacionmundo.achx", ContentManagerName))
 			{
 			}
-			AnimacionMundo = FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/animacionmundo.achx", ContentManagerName);
-			ListaJugadores = new PositionedObjectList<Player>();
+			AnimacionMundo = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/gamescreen/animacionmundo.achx", ContentManagerName);
+			ListaJugadores = new FlatRedBall.Math.PositionedObjectList<TesisEconoFight.Entities.Player>();
+			ListaJugadores.Name = "ListaJugadores";
 			PauseTextInstance = new TesisEconoFight.Entities.PauseText(ContentManagerName, false);
 			PauseTextInstance.Name = "PauseTextInstance";
 			Fondo = SceneFile.Sprites.FindByName("universitätfreiburg1");
@@ -158,6 +138,13 @@ namespace TesisEconoFight.Screens
 // Generated AddToManagers
 		public override void AddToManagers ()
 		{
+			LimitesMundo.AddToManagers(mLayer);
+			SceneFile.AddToManagers(mLayer);
+			PauseTextInstance.AddToManagers(mLayer);
+			FlatRedBall.SpriteManager.AddToLayer(Fondo, SpriteManager.UnderAllDrawnLayer);
+			P1WinTextInstance.AddToManagers(mLayer);
+			P2WinTextInstance.AddToManagers(mLayer);
+			DoubleKOTextInstance.AddToManagers(mLayer);
 			base.AddToManagers();
 			AddToManagersBottomUp();
 			CustomInitialize();
@@ -219,6 +206,7 @@ namespace TesisEconoFight.Screens
 				SceneFile.RemoveFromManagers(false);
 			}
 			
+			ListaJugadores.MakeOneWay();
 			for (int i = ListaJugadores.Count - 1; i > -1; i--)
 			{
 				ListaJugadores[i].Destroy();
@@ -230,7 +218,7 @@ namespace TesisEconoFight.Screens
 			}
 			if (Fondo != null)
 			{
-				Fondo.Detach(); SpriteManager.RemoveSprite(Fondo);
+				FlatRedBall.SpriteManager.RemoveSprite(Fondo);
 			}
 			if (P1WinTextInstance != null)
 			{
@@ -247,6 +235,7 @@ namespace TesisEconoFight.Screens
 				DoubleKOTextInstance.Destroy();
 				DoubleKOTextInstance.Detach();
 			}
+			ListaJugadores.MakeTwoWay();
 
 			base.Destroy();
 
@@ -259,18 +248,37 @@ namespace TesisEconoFight.Screens
 		{
 			bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
-			CurrentChain = "Keynes";
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp ()
 		{
-			LimitesMundo.AddToManagers(mLayer);
-			SceneFile.AddToManagers(mLayer);
-			PauseTextInstance.AddToManagers(mLayer);
-			SpriteManager.AddToLayer(Fondo, SpriteManager.UnderAllDrawnLayer);
-			P1WinTextInstance.AddToManagers(mLayer);
-			P2WinTextInstance.AddToManagers(mLayer);
-			DoubleKOTextInstance.AddToManagers(mLayer);
+			CameraSetup.ResetCamera(SpriteManager.Camera);
+			AssignCustomVariables(false);
+		}
+		public virtual void RemoveFromManagers ()
+		{
+			for (int i = ListaJugadores.Count - 1; i > -1; i--)
+			{
+				ListaJugadores[i].Destroy();
+			}
+			PauseTextInstance.RemoveFromManagers();
+			if (Fondo != null)
+			{
+				FlatRedBall.SpriteManager.RemoveSpriteOneWay(Fondo);
+			}
+			P1WinTextInstance.RemoveFromManagers();
+			P2WinTextInstance.RemoveFromManagers();
+			DoubleKOTextInstance.RemoveFromManagers();
+		}
+		public virtual void AssignCustomVariables (bool callOnContainedElements)
+		{
+			if (callOnContainedElements)
+			{
+				PauseTextInstance.AssignCustomVariables(true);
+				P1WinTextInstance.AssignCustomVariables(true);
+				P2WinTextInstance.AssignCustomVariables(true);
+				DoubleKOTextInstance.AssignCustomVariables(true);
+			}
 			CurrentChain = "Keynes";
 		}
 		public virtual void ConvertToManuallyUpdated ()
@@ -281,7 +289,7 @@ namespace TesisEconoFight.Screens
 				ListaJugadores[i].ConvertToManuallyUpdated();
 			}
 			PauseTextInstance.ConvertToManuallyUpdated();
-			SpriteManager.ConvertToManuallyUpdated(Fondo);
+			FlatRedBall.SpriteManager.ConvertToManuallyUpdated(Fondo);
 			P1WinTextInstance.ConvertToManuallyUpdated();
 			P2WinTextInstance.ConvertToManuallyUpdated();
 			DoubleKOTextInstance.ConvertToManuallyUpdated();
@@ -290,16 +298,16 @@ namespace TesisEconoFight.Screens
 		{
 			if (string.IsNullOrEmpty(contentManagerName))
 			{
-				throw new ArgumentException("contentManagerName cannot be empty or null");
+				throw new System.ArgumentException("contentManagerName cannot be empty or null");
 			}
 			#if DEBUG
-			if (contentManagerName == FlatRedBallServices.GlobalContentManager)
+			if (contentManagerName == FlatRedBall.FlatRedBallServices.GlobalContentManager)
 			{
 				HasBeenLoadedWithGlobalContentManager = true;
 			}
 			else if (HasBeenLoadedWithGlobalContentManager)
 			{
-				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
+				throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
 			}
 			#endif
 			TesisEconoFight.Entities.PauseText.LoadStaticContent(contentManagerName);
@@ -320,7 +328,7 @@ namespace TesisEconoFight.Screens
 				mLoadingState = value;
 			}
 		}
-		public Instruction InterpolateToState (VariableState stateToInterpolateTo, double secondsToTake)
+		public FlatRedBall.Instructions.Instruction InterpolateToState (VariableState stateToInterpolateTo, double secondsToTake)
 		{
 			switch(stateToInterpolateTo)
 			{
@@ -333,9 +341,9 @@ namespace TesisEconoFight.Screens
 				case  VariableState.MundoSmith:
 					break;
 			}
-			var instruction = new DelegateInstruction<VariableState>(StopStateInterpolation, stateToInterpolateTo);
-			instruction.TimeToExecute = TimeManager.CurrentTime + secondsToTake;
-			InstructionManager.Add(instruction);
+			var instruction = new FlatRedBall.Instructions.DelegateInstruction<VariableState>(StopStateInterpolation, stateToInterpolateTo);
+			instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
+			FlatRedBall.Instructions.InstructionManager.Add(instruction);
 			return instruction;
 		}
 		public void StopStateInterpolation (VariableState stateToStop)
@@ -358,7 +366,7 @@ namespace TesisEconoFight.Screens
 			#if DEBUG
 			if (float.IsNaN(interpolationValue))
 			{
-				throw new Exception("interpolationValue cannot be NaN");
+				throw new System.Exception("interpolationValue cannot be NaN");
 			}
 			#endif
 			switch(firstState)
@@ -415,18 +423,14 @@ namespace TesisEconoFight.Screens
 					}
 					break;
 			}
-		}
-		public override void MoveToState (int state)
-		{
-			this.CurrentState = (VariableState)state;
-		}
-		
-		/// <summary>Sets the current state, and pushes that state onto the back stack.</summary>
-		public void PushState (VariableState state)
-		{
-			this.CurrentState = state;
-			
-			ScreenManager.PushStateToStack((int)this.CurrentState);
+			if (interpolationValue < 1)
+			{
+				mCurrentState = (int)firstState;
+			}
+			else
+			{
+				mCurrentState = (int)secondState;
+			}
 		}
 		[System.Obsolete("Use GetFile instead")]
 		public static object GetStaticMember (string memberName)

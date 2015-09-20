@@ -6,6 +6,7 @@ using FlatRedBall.Input;
 using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
+using FlatRedBall.Screens;
 
 using FlatRedBall.Graphics.Model;
 using FlatRedBall.Math.Geometry;
@@ -120,7 +121,7 @@ namespace TesisEconoFight.Screens
                     break;
                 case LogicState.FadingOut:
 
-                    if (CurrentState == VariableState.Transparent && AsyncLoadingState == Screens.AsyncLoadingState.Done)
+                    if (CurrentState == VariableState.Transparent && AsyncLoadingState == AsyncLoadingState.Done)
                     {
                         IsActivityFinished = true;
                         // NextScreen should be set through the Glue UI

@@ -1,3 +1,7 @@
+#if ANDROID || IOS
+// Android doesn't allow background loading. iOS doesn't allow background rendering (which is used by converting textures to use premult alpha)
+#define REQUIRES_PRIMARY_THREAD_LOADING
+#endif
 using System.Collections.Generic;
 using System.Threading;
 using FlatRedBall;
@@ -12,7 +16,7 @@ using FlatRedBall.Localization;
 
 namespace TesisEconoFight
 {
-	public static class GlobalContent
+	public static partial class GlobalContent
 	{
 		
 		[System.Obsolete("Use GetFile instead")]
@@ -26,11 +30,14 @@ namespace TesisEconoFight
 		}
 		public static bool IsInitialized { get; private set; }
 		public static bool ShouldStopLoading { get; set; }
-		static string ContentManagerName = "Global";
+		const string ContentManagerName = "Global";
 		public static void Initialize ()
 		{
 			
 						IsInitialized = true;
+		}
+		public static void Reload (object whatToReload)
+		{
 		}
 		
 		

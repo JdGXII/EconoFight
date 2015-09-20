@@ -1,50 +1,29 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using FlatRedBall.Math.Geometry;
-using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Input;
-using FlatRedBall.IO;
-using FlatRedBall.Instructions;
-using FlatRedBall.Math.Splines;
-using FlatRedBall.Utilities;
-using BitmapFont = FlatRedBall.Graphics.BitmapFont;
+#if ANDROID || IOS
+#define REQUIRES_PRIMARY_THREAD_LOADING
+#endif
 
-using Cursor = FlatRedBall.Gui.Cursor;
-using GuiManager = FlatRedBall.Gui.GuiManager;
-
-#if XNA4 || WINDOWS_8
 using Color = Microsoft.Xna.Framework.Color;
-#elif FRB_MDX
-using Color = System.Drawing.Color;
-#else
-using Color = Microsoft.Xna.Framework.Graphics.Color;
-#endif
-
-#if FRB_XNA || SILVERLIGHT
-using Keys = Microsoft.Xna.Framework.Input.Keys;
-using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
-using Microsoft.Xna.Framework.Media;
-#endif
 
 // Generated Usings
 using TesisEconoFight.Entities;
 using FlatRedBall;
 using FlatRedBall.Screens;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 
 namespace TesisEconoFight.Screens
 {
-	public partial class MundoSmith : Screen
+	public partial class MundoSmith : FlatRedBall.Screens.Screen
 	{
 		// Generated Fields
 		#if DEBUG
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
-		private FlatRedBall.Scene SceneFile;
-		private FlatRedBall.Math.Geometry.ShapeCollection LimitesMundo;
+		protected FlatRedBall.Scene SceneFile;
+		protected FlatRedBall.Math.Geometry.ShapeCollection LimitesMundo;
 		
 		private FlatRedBall.Sprite Fondo;
 		private TesisEconoFight.Entities.Smith SmithInstance;
@@ -52,7 +31,7 @@ namespace TesisEconoFight.Screens
 		private TesisEconoFight.Entities.P2WinText P2WinTextInstance;
 		private TesisEconoFight.Entities.P1WinText P1WinTextInstance;
 		private TesisEconoFight.Entities.DoubleKOText DoubleKOTextInstance;
-		private PositionedObjectList<Player> ListaJugadores;
+		private FlatRedBall.Math.PositionedObjectList<TesisEconoFight.Entities.Player> ListaJugadores;
 
 		public MundoSmith()
 			: base("MundoSmith")
@@ -63,14 +42,14 @@ namespace TesisEconoFight.Screens
         {
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			if (!FlatRedBallServices.IsLoaded<FlatRedBall.Scene>(@"content/screens/mundosmith/scenefile.scnx", ContentManagerName))
+			if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Scene>(@"content/screens/mundosmith/scenefile.scnx", ContentManagerName))
 			{
 			}
-			SceneFile = FlatRedBallServices.Load<FlatRedBall.Scene>(@"content/screens/mundosmith/scenefile.scnx", ContentManagerName);
-			if (!FlatRedBallServices.IsLoaded<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/mundosmith/limitesmundo.shcx", ContentManagerName))
+			SceneFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Scene>(@"content/screens/mundosmith/scenefile.scnx", ContentManagerName);
+			if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/mundosmith/limitesmundo.shcx", ContentManagerName))
 			{
 			}
-			LimitesMundo = FlatRedBallServices.Load<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/mundosmith/limitesmundo.shcx", ContentManagerName);
+			LimitesMundo = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/mundosmith/limitesmundo.shcx", ContentManagerName);
 			Fondo = SceneFile.Sprites.FindByName("ship painting1");
 			SmithInstance = new TesisEconoFight.Entities.Smith(ContentManagerName, false);
 			SmithInstance.Name = "SmithInstance";
@@ -82,7 +61,8 @@ namespace TesisEconoFight.Screens
 			P1WinTextInstance.Name = "P1WinTextInstance";
 			DoubleKOTextInstance = new TesisEconoFight.Entities.DoubleKOText(ContentManagerName, false);
 			DoubleKOTextInstance.Name = "DoubleKOTextInstance";
-			ListaJugadores = new PositionedObjectList<Player>();
+			ListaJugadores = new FlatRedBall.Math.PositionedObjectList<TesisEconoFight.Entities.Player>();
+			ListaJugadores.Name = "ListaJugadores";
 			
 			
 			PostInitialize();
@@ -97,6 +77,14 @@ namespace TesisEconoFight.Screens
 // Generated AddToManagers
 		public override void AddToManagers ()
 		{
+			SceneFile.AddToManagers(mLayer);
+			LimitesMundo.AddToManagers(mLayer);
+			FlatRedBall.SpriteManager.AddToLayer(Fondo, SpriteManager.UnderAllDrawnLayer);
+			SmithInstance.AddToManagers(mLayer);
+			PauseTextInstance.AddToManagers(mLayer);
+			P2WinTextInstance.AddToManagers(mLayer);
+			P1WinTextInstance.AddToManagers(mLayer);
+			DoubleKOTextInstance.AddToManagers(mLayer);
 			base.AddToManagers();
 			AddToManagersBottomUp();
 			CustomInitialize();
@@ -159,9 +147,10 @@ namespace TesisEconoFight.Screens
 				LimitesMundo.RemoveFromManagers(false);
 			}
 			
+			ListaJugadores.MakeOneWay();
 			if (Fondo != null)
 			{
-				Fondo.Detach(); SpriteManager.RemoveSprite(Fondo);
+				FlatRedBall.SpriteManager.RemoveSprite(Fondo);
 			}
 			if (SmithInstance != null)
 			{
@@ -192,6 +181,7 @@ namespace TesisEconoFight.Screens
 			{
 				ListaJugadores[i].Destroy();
 			}
+			ListaJugadores.MakeTwoWay();
 
 			base.Destroy();
 
@@ -208,19 +198,40 @@ namespace TesisEconoFight.Screens
 		}
 		public virtual void AddToManagersBottomUp ()
 		{
-			SceneFile.AddToManagers(mLayer);
-			LimitesMundo.AddToManagers(mLayer);
-			SpriteManager.AddToLayer(Fondo, SpriteManager.UnderAllDrawnLayer);
-			SmithInstance.AddToManagers(mLayer);
-			PauseTextInstance.AddToManagers(mLayer);
-			P2WinTextInstance.AddToManagers(mLayer);
-			P1WinTextInstance.AddToManagers(mLayer);
-			DoubleKOTextInstance.AddToManagers(mLayer);
+			CameraSetup.ResetCamera(SpriteManager.Camera);
+			AssignCustomVariables(false);
+		}
+		public virtual void RemoveFromManagers ()
+		{
+			if (Fondo != null)
+			{
+				FlatRedBall.SpriteManager.RemoveSpriteOneWay(Fondo);
+			}
+			SmithInstance.RemoveFromManagers();
+			PauseTextInstance.RemoveFromManagers();
+			P2WinTextInstance.RemoveFromManagers();
+			P1WinTextInstance.RemoveFromManagers();
+			DoubleKOTextInstance.RemoveFromManagers();
+			for (int i = ListaJugadores.Count - 1; i > -1; i--)
+			{
+				ListaJugadores[i].Destroy();
+			}
+		}
+		public virtual void AssignCustomVariables (bool callOnContainedElements)
+		{
+			if (callOnContainedElements)
+			{
+				SmithInstance.AssignCustomVariables(true);
+				PauseTextInstance.AssignCustomVariables(true);
+				P2WinTextInstance.AssignCustomVariables(true);
+				P1WinTextInstance.AssignCustomVariables(true);
+				DoubleKOTextInstance.AssignCustomVariables(true);
+			}
 		}
 		public virtual void ConvertToManuallyUpdated ()
 		{
 			SceneFile.ConvertToManuallyUpdated();
-			SpriteManager.ConvertToManuallyUpdated(Fondo);
+			FlatRedBall.SpriteManager.ConvertToManuallyUpdated(Fondo);
 			SmithInstance.ConvertToManuallyUpdated();
 			PauseTextInstance.ConvertToManuallyUpdated();
 			P2WinTextInstance.ConvertToManuallyUpdated();
@@ -235,16 +246,16 @@ namespace TesisEconoFight.Screens
 		{
 			if (string.IsNullOrEmpty(contentManagerName))
 			{
-				throw new ArgumentException("contentManagerName cannot be empty or null");
+				throw new System.ArgumentException("contentManagerName cannot be empty or null");
 			}
 			#if DEBUG
-			if (contentManagerName == FlatRedBallServices.GlobalContentManager)
+			if (contentManagerName == FlatRedBall.FlatRedBallServices.GlobalContentManager)
 			{
 				HasBeenLoadedWithGlobalContentManager = true;
 			}
 			else if (HasBeenLoadedWithGlobalContentManager)
 			{
-				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
+				throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
 			}
 			#endif
 			TesisEconoFight.Entities.Smith.LoadStaticContent(contentManagerName);

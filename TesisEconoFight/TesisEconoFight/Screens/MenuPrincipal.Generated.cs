@@ -1,49 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using FlatRedBall.Math.Geometry;
-using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Input;
-using FlatRedBall.IO;
-using FlatRedBall.Instructions;
-using FlatRedBall.Math.Splines;
-using FlatRedBall.Utilities;
-using BitmapFont = FlatRedBall.Graphics.BitmapFont;
+#if ANDROID || IOS
+#define REQUIRES_PRIMARY_THREAD_LOADING
+#endif
 
-using Cursor = FlatRedBall.Gui.Cursor;
-using GuiManager = FlatRedBall.Gui.GuiManager;
-
-#if XNA4 || WINDOWS_8
 using Color = Microsoft.Xna.Framework.Color;
-#elif FRB_MDX
-using Color = System.Drawing.Color;
-#else
-using Color = Microsoft.Xna.Framework.Graphics.Color;
-#endif
-
-#if FRB_XNA || SILVERLIGHT
-using Keys = Microsoft.Xna.Framework.Input.Keys;
-using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
-using Microsoft.Xna.Framework.Media;
-#endif
 
 // Generated Usings
 using TesisEconoFight.Entities;
 using FlatRedBall;
 using FlatRedBall.Screens;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using FlatRedBall.Math.Geometry;
 
 namespace TesisEconoFight.Screens
 {
-	public partial class MenuPrincipal : Screen
+	public partial class MenuPrincipal : FlatRedBall.Screens.Screen
 	{
 		// Generated Fields
 		#if DEBUG
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
-		private FlatRedBall.Math.Geometry.ShapeCollection Alternativas;
-		private FlatRedBall.Scene SceneFile;
+		protected FlatRedBall.Math.Geometry.ShapeCollection Alternativas;
+		protected FlatRedBall.Scene SceneFile;
 		
 		private TesisEconoFight.Entities.Kursor KursorInstance;
 
@@ -56,14 +35,14 @@ namespace TesisEconoFight.Screens
         {
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			if (!FlatRedBallServices.IsLoaded<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/menuprincipal/alternativas.shcx", ContentManagerName))
+			if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/menuprincipal/alternativas.shcx", ContentManagerName))
 			{
 			}
-			Alternativas = FlatRedBallServices.Load<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/menuprincipal/alternativas.shcx", ContentManagerName);
-			if (!FlatRedBallServices.IsLoaded<FlatRedBall.Scene>(@"content/screens/menuprincipal/scenefile.scnx", ContentManagerName))
+			Alternativas = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/menuprincipal/alternativas.shcx", ContentManagerName);
+			if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Scene>(@"content/screens/menuprincipal/scenefile.scnx", ContentManagerName))
 			{
 			}
-			SceneFile = FlatRedBallServices.Load<FlatRedBall.Scene>(@"content/screens/menuprincipal/scenefile.scnx", ContentManagerName);
+			SceneFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Scene>(@"content/screens/menuprincipal/scenefile.scnx", ContentManagerName);
 			KursorInstance = new TesisEconoFight.Entities.Kursor(ContentManagerName, false);
 			KursorInstance.Name = "KursorInstance";
 			
@@ -80,6 +59,9 @@ namespace TesisEconoFight.Screens
 // Generated AddToManagers
 		public override void AddToManagers ()
 		{
+			Alternativas.AddToManagers(mLayer);
+			SceneFile.AddToManagers(mLayer);
+			KursorInstance.AddToManagers(mLayer);
 			base.AddToManagers();
 			AddToManagersBottomUp();
 			CustomInitialize();
@@ -151,9 +133,19 @@ namespace TesisEconoFight.Screens
 		}
 		public virtual void AddToManagersBottomUp ()
 		{
-			Alternativas.AddToManagers(mLayer);
-			SceneFile.AddToManagers(mLayer);
-			KursorInstance.AddToManagers(mLayer);
+			CameraSetup.ResetCamera(SpriteManager.Camera);
+			AssignCustomVariables(false);
+		}
+		public virtual void RemoveFromManagers ()
+		{
+			KursorInstance.RemoveFromManagers();
+		}
+		public virtual void AssignCustomVariables (bool callOnContainedElements)
+		{
+			if (callOnContainedElements)
+			{
+				KursorInstance.AssignCustomVariables(true);
+			}
 		}
 		public virtual void ConvertToManuallyUpdated ()
 		{
@@ -164,16 +156,16 @@ namespace TesisEconoFight.Screens
 		{
 			if (string.IsNullOrEmpty(contentManagerName))
 			{
-				throw new ArgumentException("contentManagerName cannot be empty or null");
+				throw new System.ArgumentException("contentManagerName cannot be empty or null");
 			}
 			#if DEBUG
-			if (contentManagerName == FlatRedBallServices.GlobalContentManager)
+			if (contentManagerName == FlatRedBall.FlatRedBallServices.GlobalContentManager)
 			{
 				HasBeenLoadedWithGlobalContentManager = true;
 			}
 			else if (HasBeenLoadedWithGlobalContentManager)
 			{
-				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
+				throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
 			}
 			#endif
 			TesisEconoFight.Entities.Kursor.LoadStaticContent(contentManagerName);

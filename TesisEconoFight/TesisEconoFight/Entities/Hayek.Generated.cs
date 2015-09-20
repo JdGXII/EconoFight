@@ -1,50 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Graphics.Model;
+#if ANDROID || IOS
+#define REQUIRES_PRIMARY_THREAD_LOADING
+#endif
 
-using FlatRedBall.Input;
-using FlatRedBall.Utilities;
-
-using FlatRedBall.Instructions;
-using FlatRedBall.Math.Splines;
-using BitmapFont = FlatRedBall.Graphics.BitmapFont;
-using Cursor = FlatRedBall.Gui.Cursor;
-using GuiManager = FlatRedBall.Gui.GuiManager;
-// Generated Usings
-using TesisEconoFight.Screens;
-using FlatRedBall.Graphics;
-using FlatRedBall.Math;
-using TesisEconoFight.Entities;
-using FlatRedBall;
-using FlatRedBall.Screens;
-using FlatRedBall.Math.Geometry;
-using FlatRedBall.Graphics.Animation;
-
-#if XNA4 || WINDOWS_8
 using Color = Microsoft.Xna.Framework.Color;
-#elif FRB_MDX
-using Color = System.Drawing.Color;
-#else
-using Color = Microsoft.Xna.Framework.Graphics.Color;
-#endif
-
-#if FRB_XNA || SILVERLIGHT
-using Keys = Microsoft.Xna.Framework.Input.Keys;
-using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
-#endif
-
-#if FRB_XNA && !MONODROID
-using Model = Microsoft.Xna.Framework.Graphics.Model;
-#endif
 
 namespace TesisEconoFight.Entities
 {
-	public partial class Hayek : TesisEconoFight.Entities.Player, IDestroyable
+	public partial class Hayek : TesisEconoFight.Entities.Player, FlatRedBall.Graphics.IDestroyable
 	{
-        // This is made global so that static lazy-loaded content can access it.
+        // This is made static so that static lazy-loaded content can access it.
         public static new string ContentManagerName
         {
             get{ return Entities.Player.ContentManagerName;}
@@ -85,11 +49,11 @@ namespace TesisEconoFight.Entities
 			FlipMuerto = 25
 		}
 		protected int mCurrentState = 0;
-		public VariableState CurrentState
+		public Entities.Hayek.VariableState CurrentState
 		{
 			get
 			{
-				if (Enum.IsDefined(typeof(VariableState), mCurrentState))
+				if (System.Enum.IsDefined(typeof(VariableState), mCurrentState))
 				{
 					return (VariableState)mCurrentState;
 				}
@@ -183,12 +147,12 @@ namespace TesisEconoFight.Entities
 			}
 		}
 		static object mLockObject = new object();
-		static List<string> mRegisteredUnloads = new List<string>();
-		static List<string> LoadedContentManagers = new List<string>();
-		private static FlatRedBall.Graphics.Animation.AnimationChainList AnimacionHayek;
-		private static FlatRedBall.Scene SceneFile;
+		static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
+		static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
+		protected static FlatRedBall.Graphics.Animation.AnimationChainList AnimacionHayek;
+		protected static FlatRedBall.Scene SceneFile;
 		
-		private PositionedObjectList<BarraPadre> ListaSuperB;
+		private FlatRedBall.Math.PositionedObjectList<TesisEconoFight.Entities.BarraPadre> ListaSuperB;
 		public string Estado = "Oro";
 		public string CurrentChainName
 		{
@@ -212,8 +176,12 @@ namespace TesisEconoFight.Entities
 				Sprite.Visible = value;
 			}
 		}
-		public int Index { get; set; }
-		public bool Used { get; set; }
+
+        public Hayek()
+            : this(FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, true)
+        {
+
+        }
 
         public Hayek(string contentManagerName) :
             this(contentManagerName, true)
@@ -235,12 +203,18 @@ namespace TesisEconoFight.Entities
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
 			Cuerpo = new FlatRedBall.Math.Geometry.AxisAlignedRectangle();
+			Cuerpo.Name = "Cuerpo";
 			Sprite = SceneFile.Sprites.FindByName("hayek-141").Clone();
 			Shield = new FlatRedBall.Math.Geometry.AxisAlignedRectangle();
-			mListaAtaques = new PositionedObjectList<Especial>();
+			Shield.Name = "Shield";
+			mListaAtaques = new FlatRedBall.Math.PositionedObjectList<TesisEconoFight.Entities.Especial>();
+			mListaAtaques.Name = "mListaAtaques";
 			Golpe = new FlatRedBall.Math.Geometry.AxisAlignedRectangle();
-			ListaSuperB = new PositionedObjectList<BarraPadre>();
-			mListaAtaqueSuper = new PositionedObjectList<SuperAtaque>();
+			Golpe.Name = "Golpe";
+			ListaSuperB = new FlatRedBall.Math.PositionedObjectList<TesisEconoFight.Entities.BarraPadre>();
+			ListaSuperB.Name = "ListaSuperB";
+			mListaAtaqueSuper = new FlatRedBall.Math.PositionedObjectList<TesisEconoFight.Entities.SuperAtaque>();
+			mListaAtaqueSuper.Name = "mListaAtaqueSuper";
 			
 			base.InitializeEntity(addToManagers);
 
@@ -248,9 +222,21 @@ namespace TesisEconoFight.Entities
 		}
 
 // Generated AddToManagers
-		public override void AddToManagers (Layer layerToAddTo)
+		public override void ReAddToManagers (FlatRedBall.Graphics.Layer layerToAddTo)
+		{
+			base.ReAddToManagers(layerToAddTo);
+			FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(Cuerpo, LayerProvidedByContainer);
+			FlatRedBall.SpriteManager.AddToLayer(Sprite, LayerProvidedByContainer);
+			FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(Shield, LayerProvidedByContainer);
+			FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(Golpe, LayerProvidedByContainer);
+		}
+		public override void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo)
 		{
 			LayerProvidedByContainer = layerToAddTo;
+			FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(Cuerpo, LayerProvidedByContainer);
+			FlatRedBall.SpriteManager.AddToLayer(Sprite, LayerProvidedByContainer);
+			FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(Shield, LayerProvidedByContainer);
+			FlatRedBall.Math.Geometry.ShapeManager.AddToLayer(Golpe, LayerProvidedByContainer);
 			base.AddToManagers(layerToAddTo);
 			CustomInitialize();
 		}
@@ -294,17 +280,20 @@ namespace TesisEconoFight.Entities
 			// Generated Destroy
 			base.Destroy();
 			
+			ListaAtaques.MakeOneWay();
+			ListaSuperB.MakeOneWay();
+			ListaAtaqueSuper.MakeOneWay();
 			if (Cuerpo != null)
 			{
-				Cuerpo.Detach(); ShapeManager.Remove(Cuerpo);
+				FlatRedBall.Math.Geometry.ShapeManager.Remove(Cuerpo);
 			}
 			if (Sprite != null)
 			{
-				Sprite.Detach(); SpriteManager.RemoveSprite(Sprite);
+				FlatRedBall.SpriteManager.RemoveSprite(Sprite);
 			}
 			if (Shield != null)
 			{
-				Shield.Detach(); ShapeManager.Remove(Shield);
+				FlatRedBall.Math.Geometry.ShapeManager.Remove(Shield);
 			}
 			for (int i = ListaAtaques.Count - 1; i > -1; i--)
 			{
@@ -312,7 +301,7 @@ namespace TesisEconoFight.Entities
 			}
 			if (Golpe != null)
 			{
-				Golpe.Detach(); ShapeManager.Remove(Golpe);
+				FlatRedBall.Math.Geometry.ShapeManager.Remove(Golpe);
 			}
 			for (int i = ListaSuperB.Count - 1; i > -1; i--)
 			{
@@ -322,6 +311,9 @@ namespace TesisEconoFight.Entities
 			{
 				ListaAtaqueSuper[i].Destroy();
 			}
+			ListaAtaques.MakeTwoWay();
+			ListaSuperB.MakeTwoWay();
+			ListaAtaqueSuper.MakeTwoWay();
 
 
 			CustomDestroy();
@@ -353,41 +345,51 @@ namespace TesisEconoFight.Entities
 				Golpe.CopyAbsoluteToRelative();
 				Golpe.AttachTo(this, false);
 			}
-			VidaTotal = 110000f;
-			VidaActual = 110000f;
-			Velocidad = 4f;
-			PhysDamage = 700f;
-			SuperCompleta = 100f;
-			SuperActual = 0f;
-			Estado = "Oro";
-			Nombre = "Hayek";
-			isAlive = true;
-			CurrentChainName = "Parado";
-			SpriteVisible = true;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
-		public override void AddToManagersBottomUp (Layer layerToAddTo)
+		public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo)
 		{
 			base.AddToManagersBottomUp(layerToAddTo);
-			// We move this back to the origin and unrotate it so that anything attached to it can just use its absolute position
-			float oldRotationX = RotationX;
-			float oldRotationY = RotationY;
-			float oldRotationZ = RotationZ;
-			
-			float oldX = X;
-			float oldY = Y;
-			float oldZ = Z;
-			
-			X = 0;
-			Y = 0;
-			Z = 0;
-			RotationX = 0;
-			RotationY = 0;
-			RotationZ = 0;
-			ShapeManager.AddToLayer(Cuerpo, layerToAddTo);
-			SpriteManager.AddToLayer(Sprite, layerToAddTo);
-			ShapeManager.AddToLayer(Shield, layerToAddTo);
-			ShapeManager.AddToLayer(Golpe, layerToAddTo);
+		}
+		public override void RemoveFromManagers ()
+		{
+			base.RemoveFromManagers();
+			base.RemoveFromManagers();
+			if (Cuerpo != null)
+			{
+				FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(Cuerpo);
+			}
+			if (Sprite != null)
+			{
+				FlatRedBall.SpriteManager.RemoveSpriteOneWay(Sprite);
+			}
+			if (Shield != null)
+			{
+				FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(Shield);
+			}
+			for (int i = ListaAtaques.Count - 1; i > -1; i--)
+			{
+				ListaAtaques[i].Destroy();
+			}
+			if (Golpe != null)
+			{
+				FlatRedBall.Math.Geometry.ShapeManager.RemoveOneWay(Golpe);
+			}
+			for (int i = ListaSuperB.Count - 1; i > -1; i--)
+			{
+				ListaSuperB[i].Destroy();
+			}
+			for (int i = ListaAtaqueSuper.Count - 1; i > -1; i--)
+			{
+				ListaAtaqueSuper[i].Destroy();
+			}
+		}
+		public override void AssignCustomVariables (bool callOnContainedElements)
+		{
+			base.AssignCustomVariables(callOnContainedElements);
+			if (callOnContainedElements)
+			{
+			}
 			VidaTotal = 110000f;
 			VidaActual = 110000f;
 			Velocidad = 4f;
@@ -399,19 +401,13 @@ namespace TesisEconoFight.Entities
 			isAlive = true;
 			CurrentChainName = "Parado";
 			SpriteVisible = true;
-			X = oldX;
-			Y = oldY;
-			Z = oldZ;
-			RotationX = oldRotationX;
-			RotationY = oldRotationY;
-			RotationZ = oldRotationZ;
 		}
 		public override void ConvertToManuallyUpdated ()
 		{
 			base.ConvertToManuallyUpdated();
 			this.ForceUpdateDependenciesDeep();
-			SpriteManager.ConvertToManuallyUpdated(this);
-			SpriteManager.ConvertToManuallyUpdated(Sprite);
+			FlatRedBall.SpriteManager.ConvertToManuallyUpdated(this);
+			FlatRedBall.SpriteManager.ConvertToManuallyUpdated(Sprite);
 			for (int i = 0; i < ListaAtaques.Count; i++)
 			{
 				ListaAtaques[i].ConvertToManuallyUpdated();
@@ -429,17 +425,18 @@ namespace TesisEconoFight.Entities
 		{
 			if (string.IsNullOrEmpty(contentManagerName))
 			{
-				throw new ArgumentException("contentManagerName cannot be empty or null");
+				throw new System.ArgumentException("contentManagerName cannot be empty or null");
 			}
 			ContentManagerName = contentManagerName;
+			TesisEconoFight.Entities.Player.LoadStaticContent(contentManagerName);
 			#if DEBUG
-			if (contentManagerName == FlatRedBallServices.GlobalContentManager)
+			if (contentManagerName == FlatRedBall.FlatRedBallServices.GlobalContentManager)
 			{
 				HasBeenLoadedWithGlobalContentManager = true;
 			}
 			else if (HasBeenLoadedWithGlobalContentManager)
 			{
-				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
+				throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
 			}
 			#endif
 			bool registerUnload = false;
@@ -448,30 +445,30 @@ namespace TesisEconoFight.Entities
 				LoadedContentManagers.Add(contentManagerName);
 				lock (mLockObject)
 				{
-					if (!mRegisteredUnloads.Contains(ContentManagerName) && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+					if (!mRegisteredUnloads.Contains(ContentManagerName) && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("HayekStaticUnload", UnloadStaticContent);
+						FlatRedBall.FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("HayekStaticUnload", UnloadStaticContent);
 						mRegisteredUnloads.Add(ContentManagerName);
 					}
 				}
-				if (!FlatRedBallServices.IsLoaded<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/hayek/animacionhayek.achx", ContentManagerName))
+				if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/hayek/animacionhayek.achx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				AnimacionHayek = FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/hayek/animacionhayek.achx", ContentManagerName);
-				if (!FlatRedBallServices.IsLoaded<FlatRedBall.Scene>(@"content/entities/hayek/scenefile.scnx", ContentManagerName))
+				AnimacionHayek = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/entities/hayek/animacionhayek.achx", ContentManagerName);
+				if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Scene>(@"content/entities/hayek/scenefile.scnx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				SceneFile = FlatRedBallServices.Load<FlatRedBall.Scene>(@"content/entities/hayek/scenefile.scnx", ContentManagerName);
+				SceneFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Scene>(@"content/entities/hayek/scenefile.scnx", ContentManagerName);
 			}
-			if (registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+			if (registerUnload && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
 			{
 				lock (mLockObject)
 				{
-					if (!mRegisteredUnloads.Contains(ContentManagerName) && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+					if (!mRegisteredUnloads.Contains(ContentManagerName) && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("HayekStaticUnload", UnloadStaticContent);
+						FlatRedBall.FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("HayekStaticUnload", UnloadStaticContent);
 						mRegisteredUnloads.Add(ContentManagerName);
 					}
 				}
@@ -510,7 +507,7 @@ namespace TesisEconoFight.Entities
 				mLoadingState = value;
 			}
 		}
-		public Instruction InterpolateToState (VariableState stateToInterpolateTo, double secondsToTake)
+		public FlatRedBall.Instructions.Instruction InterpolateToState (VariableState stateToInterpolateTo, double secondsToTake)
 		{
 			switch(stateToInterpolateTo)
 			{
@@ -563,8 +560,8 @@ namespace TesisEconoFight.Entities
 				case  VariableState.FlipMuerto:
 					break;
 			}
-			var instruction = new DelegateInstruction<VariableState>(StopStateInterpolation, stateToInterpolateTo);
-			instruction.TimeToExecute = TimeManager.CurrentTime + secondsToTake;
+			var instruction = new FlatRedBall.Instructions.DelegateInstruction<VariableState>(StopStateInterpolation, stateToInterpolateTo);
+			instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
 			this.Instructions.Add(instruction);
 			return instruction;
 		}
@@ -628,7 +625,7 @@ namespace TesisEconoFight.Entities
 			#if DEBUG
 			if (float.IsNaN(interpolationValue))
 			{
-				throw new Exception("interpolationValue cannot be NaN");
+				throw new System.Exception("interpolationValue cannot be NaN");
 			}
 			#endif
 			switch(firstState)
@@ -925,84 +922,139 @@ namespace TesisEconoFight.Entities
 					}
 					break;
 			}
+			if (interpolationValue < 1)
+			{
+				mCurrentState = (int)firstState;
+			}
+			else
+			{
+				mCurrentState = (int)secondState;
+			}
 		}
 		public static void PreloadStateContent (VariableState state, string contentManagerName)
 		{
 			ContentManagerName = contentManagerName;
-			object throwaway;
 			switch(state)
 			{
 				case  VariableState.Parado:
-					throwaway = "Parado";
+					{
+						object throwaway = "Parado";
+					}
 					break;
 				case  VariableState.Caminando:
-					throwaway = "Caminar";
+					{
+						object throwaway = "Caminar";
+					}
 					break;
 				case  VariableState.Agachado:
-					throwaway = "Agacharse";
+					{
+						object throwaway = "Agacharse";
+					}
 					break;
 				case  VariableState.BloqueoArriba:
-					throwaway = "BloqueoArriba";
+					{
+						object throwaway = "BloqueoArriba";
+					}
 					break;
 				case  VariableState.BloqueoAbajo:
-					throwaway = "BloqueoAbajo";
+					{
+						object throwaway = "BloqueoAbajo";
+					}
 					break;
 				case  VariableState.GolpeArriba:
-					throwaway = "GolpeArriba";
+					{
+						object throwaway = "GolpeArriba";
+					}
 					break;
 				case  VariableState.GolpeAbajo:
-					throwaway = "GolpeAbajo";
+					{
+						object throwaway = "GolpeAbajo";
+					}
 					break;
 				case  VariableState.Especial1:
-					throwaway = "Especial1";
+					{
+						object throwaway = "Especial1";
+					}
 					break;
 				case  VariableState.Especial2:
-					throwaway = "Especial2";
+					{
+						object throwaway = "Especial2";
+					}
 					break;
 				case  VariableState.Super:
-					throwaway = "Super";
+					{
+						object throwaway = "Super";
+					}
 					break;
 				case  VariableState.Golpeado:
-					throwaway = "Golpeado";
+					{
+						object throwaway = "Golpeado";
+					}
 					break;
 				case  VariableState.Muerto:
-					throwaway = "Muerto";
+					{
+						object throwaway = "Muerto";
+					}
 					break;
 				case  VariableState.FlipParado:
-					throwaway = "FlipParado";
+					{
+						object throwaway = "FlipParado";
+					}
 					break;
 				case  VariableState.FlipCaminando:
-					throwaway = "FlipCaminar";
+					{
+						object throwaway = "FlipCaminar";
+					}
 					break;
 				case  VariableState.FlipAgachado:
-					throwaway = "FlipAgacharse";
+					{
+						object throwaway = "FlipAgacharse";
+					}
 					break;
 				case  VariableState.FlipBloqueoArriba:
-					throwaway = "FlipBloqueoArriba";
+					{
+						object throwaway = "FlipBloqueoArriba";
+					}
 					break;
 				case  VariableState.FlipBloqueoAbajo:
-					throwaway = "FlipBloqueoAbajo";
+					{
+						object throwaway = "FlipBloqueoAbajo";
+					}
 					break;
 				case  VariableState.FlipGolpeArriba:
-					throwaway = "FlipGolpeArriba";
+					{
+						object throwaway = "FlipGolpeArriba";
+					}
 					break;
 				case  VariableState.FlipGolpeAbajo:
-					throwaway = "FlipGolpeAbajo";
+					{
+						object throwaway = "FlipGolpeAbajo";
+					}
 					break;
 				case  VariableState.FlipEspecial1:
-					throwaway = "FlipEspecial1";
+					{
+						object throwaway = "FlipEspecial1";
+					}
 					break;
 				case  VariableState.FlipEspecial2:
-					throwaway = "FlipEspecial2";
+					{
+						object throwaway = "FlipEspecial2";
+					}
 					break;
 				case  VariableState.FlipSuper:
-					throwaway = "FlipSuper";
+					{
+						object throwaway = "FlipSuper";
+					}
 					break;
 				case  VariableState.FlipGolpeado:
-					throwaway = "FlipGolpeado";
+					{
+						object throwaway = "FlipGolpeado";
+					}
 					break;
 				case  VariableState.FlipMuerto:
-					throwaway = "FlipMuerto";
+					{
+						object throwaway = "FlipMuerto";
+					}
 					break;
 			}
 		}
@@ -1043,18 +1095,19 @@ namespace TesisEconoFight.Entities
 		public override void SetToIgnorePausing ()
 		{
 			base.SetToIgnorePausing();
-			InstructionManager.IgnorePausingFor(Cuerpo);
-			InstructionManager.IgnorePausingFor(Sprite);
-			InstructionManager.IgnorePausingFor(Shield);
-			InstructionManager.IgnorePausingFor(Golpe);
+			FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(Cuerpo);
+			FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(Sprite);
+			FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(Shield);
+			FlatRedBall.Instructions.InstructionManager.IgnorePausingFor(Golpe);
 		}
-		public void MoveToLayer (Layer layerToMoveTo)
+		public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo)
 		{
+			base.MoveToLayer(layerToMoveTo);
 			if (LayerProvidedByContainer != null)
 			{
 				LayerProvidedByContainer.Remove(Sprite);
 			}
-			SpriteManager.AddToLayer(Sprite, layerToMoveTo);
+			FlatRedBall.SpriteManager.AddToLayer(Sprite, layerToMoveTo);
 			LayerProvidedByContainer = layerToMoveTo;
 		}
 
@@ -1062,8 +1115,5 @@ namespace TesisEconoFight.Entities
 	
 	
 	// Extra classes
-	public static class HayekExtensionMethods
-	{
-	}
 	
 }

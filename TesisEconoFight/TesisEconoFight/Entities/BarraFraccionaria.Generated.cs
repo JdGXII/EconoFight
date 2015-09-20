@@ -1,48 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Graphics.Model;
+#if ANDROID || IOS
+#define REQUIRES_PRIMARY_THREAD_LOADING
+#endif
 
-using FlatRedBall.Input;
-using FlatRedBall.Utilities;
-
-using FlatRedBall.Instructions;
-using FlatRedBall.Math.Splines;
-using BitmapFont = FlatRedBall.Graphics.BitmapFont;
-using Cursor = FlatRedBall.Gui.Cursor;
-using GuiManager = FlatRedBall.Gui.GuiManager;
-// Generated Usings
-using TesisEconoFight.Screens;
-using FlatRedBall.Graphics;
-using FlatRedBall.Math;
-using TesisEconoFight.Entities;
-using FlatRedBall;
-using FlatRedBall.Screens;
-
-#if XNA4 || WINDOWS_8
 using Color = Microsoft.Xna.Framework.Color;
-#elif FRB_MDX
-using Color = System.Drawing.Color;
-#else
-using Color = Microsoft.Xna.Framework.Graphics.Color;
-#endif
-
-#if FRB_XNA || SILVERLIGHT
-using Keys = Microsoft.Xna.Framework.Input.Keys;
-using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
-#endif
-
-#if FRB_XNA && !MONODROID
-using Model = Microsoft.Xna.Framework.Graphics.Model;
-#endif
 
 namespace TesisEconoFight.Entities
 {
-	public partial class BarraFraccionaria : TesisEconoFight.Entities.BarraPadre, IDestroyable
+	public partial class BarraFraccionaria : TesisEconoFight.Entities.BarraPadre, FlatRedBall.Graphics.IDestroyable
 	{
-        // This is made global so that static lazy-loaded content can access it.
+        // This is made static so that static lazy-loaded content can access it.
         public static new string ContentManagerName
         {
             get{ return Entities.BarraPadre.ContentManagerName;}
@@ -54,11 +20,15 @@ namespace TesisEconoFight.Entities
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
 		static object mLockObject = new object();
-		static List<string> mRegisteredUnloads = new List<string>();
-		static List<string> LoadedContentManagers = new List<string>();
+		static System.Collections.Generic.List<string> mRegisteredUnloads = new System.Collections.Generic.List<string>();
+		static System.Collections.Generic.List<string> LoadedContentManagers = new System.Collections.Generic.List<string>();
 		
-		public int Index { get; set; }
-		public bool Used { get; set; }
+
+        public BarraFraccionaria()
+            : this(FlatRedBall.Screens.ScreenManager.CurrentScreen.ContentManagerName, true)
+        {
+
+        }
 
         public BarraFraccionaria(string contentManagerName) :
             this(contentManagerName, true)
@@ -86,7 +56,11 @@ namespace TesisEconoFight.Entities
 		}
 
 // Generated AddToManagers
-		public override void AddToManagers (Layer layerToAddTo)
+		public override void ReAddToManagers (FlatRedBall.Graphics.Layer layerToAddTo)
+		{
+			base.ReAddToManagers(layerToAddTo);
+		}
+		public override void AddToManagers (FlatRedBall.Graphics.Layer layerToAddTo)
 		{
 			LayerProvidedByContainer = layerToAddTo;
 			base.AddToManagers(layerToAddTo);
@@ -119,60 +93,49 @@ namespace TesisEconoFight.Entities
 			bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
 			base.PostInitialize();
-			CantidadActual = 0f;
-			CantidadTotal = 100f;
-			FactorLlenado = 7f;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
-		public override void AddToManagersBottomUp (Layer layerToAddTo)
+		public override void AddToManagersBottomUp (FlatRedBall.Graphics.Layer layerToAddTo)
 		{
 			base.AddToManagersBottomUp(layerToAddTo);
-			// We move this back to the origin and unrotate it so that anything attached to it can just use its absolute position
-			float oldRotationX = RotationX;
-			float oldRotationY = RotationY;
-			float oldRotationZ = RotationZ;
-			
-			float oldX = X;
-			float oldY = Y;
-			float oldZ = Z;
-			
-			X = 0;
-			Y = 0;
-			Z = 0;
-			RotationX = 0;
-			RotationY = 0;
-			RotationZ = 0;
+		}
+		public override void RemoveFromManagers ()
+		{
+			base.RemoveFromManagers();
+			base.RemoveFromManagers();
+		}
+		public override void AssignCustomVariables (bool callOnContainedElements)
+		{
+			base.AssignCustomVariables(callOnContainedElements);
+			if (callOnContainedElements)
+			{
+			}
 			CantidadActual = 0f;
 			CantidadTotal = 100f;
 			FactorLlenado = 7f;
-			X = oldX;
-			Y = oldY;
-			Z = oldZ;
-			RotationX = oldRotationX;
-			RotationY = oldRotationY;
-			RotationZ = oldRotationZ;
 		}
 		public override void ConvertToManuallyUpdated ()
 		{
 			base.ConvertToManuallyUpdated();
 			this.ForceUpdateDependenciesDeep();
-			SpriteManager.ConvertToManuallyUpdated(this);
+			FlatRedBall.SpriteManager.ConvertToManuallyUpdated(this);
 		}
 		public static new void LoadStaticContent (string contentManagerName)
 		{
 			if (string.IsNullOrEmpty(contentManagerName))
 			{
-				throw new ArgumentException("contentManagerName cannot be empty or null");
+				throw new System.ArgumentException("contentManagerName cannot be empty or null");
 			}
 			ContentManagerName = contentManagerName;
+			TesisEconoFight.Entities.BarraPadre.LoadStaticContent(contentManagerName);
 			#if DEBUG
-			if (contentManagerName == FlatRedBallServices.GlobalContentManager)
+			if (contentManagerName == FlatRedBall.FlatRedBallServices.GlobalContentManager)
 			{
 				HasBeenLoadedWithGlobalContentManager = true;
 			}
 			else if (HasBeenLoadedWithGlobalContentManager)
 			{
-				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
+				throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
 			}
 			#endif
 			bool registerUnload = false;
@@ -181,20 +144,20 @@ namespace TesisEconoFight.Entities
 				LoadedContentManagers.Add(contentManagerName);
 				lock (mLockObject)
 				{
-					if (!mRegisteredUnloads.Contains(ContentManagerName) && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+					if (!mRegisteredUnloads.Contains(ContentManagerName) && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("BarraFraccionariaStaticUnload", UnloadStaticContent);
+						FlatRedBall.FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("BarraFraccionariaStaticUnload", UnloadStaticContent);
 						mRegisteredUnloads.Add(ContentManagerName);
 					}
 				}
 			}
-			if (registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+			if (registerUnload && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
 			{
 				lock (mLockObject)
 				{
-					if (!mRegisteredUnloads.Contains(ContentManagerName) && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+					if (!mRegisteredUnloads.Contains(ContentManagerName) && ContentManagerName != FlatRedBall.FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("BarraFraccionariaStaticUnload", UnloadStaticContent);
+						FlatRedBall.FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("BarraFraccionariaStaticUnload", UnloadStaticContent);
 						mRegisteredUnloads.Add(ContentManagerName);
 					}
 				}
@@ -229,8 +192,9 @@ namespace TesisEconoFight.Entities
 		{
 			base.SetToIgnorePausing();
 		}
-		public void MoveToLayer (Layer layerToMoveTo)
+		public override void MoveToLayer (FlatRedBall.Graphics.Layer layerToMoveTo)
 		{
+			base.MoveToLayer(layerToMoveTo);
 			LayerProvidedByContainer = layerToMoveTo;
 		}
 
@@ -238,8 +202,5 @@ namespace TesisEconoFight.Entities
 	
 	
 	// Extra classes
-	public static class BarraFraccionariaExtensionMethods
-	{
-	}
 	
 }

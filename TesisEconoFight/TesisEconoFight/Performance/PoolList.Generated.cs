@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TesisEconoFight.Performance
 {
-    public class PoolList<T> where T : IPoolable
+    public class PoolList<T> where T : FlatRedBall.Performance.IPoolable
     {
         #region Fields
         List<T> mPoolables = new List<T>();

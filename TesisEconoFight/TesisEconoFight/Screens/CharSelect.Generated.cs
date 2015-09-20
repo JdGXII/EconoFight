@@ -1,44 +1,23 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using FlatRedBall.Math.Geometry;
-using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Input;
-using FlatRedBall.IO;
-using FlatRedBall.Instructions;
-using FlatRedBall.Math.Splines;
-using FlatRedBall.Utilities;
-using BitmapFont = FlatRedBall.Graphics.BitmapFont;
+#if ANDROID || IOS
+#define REQUIRES_PRIMARY_THREAD_LOADING
+#endif
 
-using Cursor = FlatRedBall.Gui.Cursor;
-using GuiManager = FlatRedBall.Gui.GuiManager;
-
-#if XNA4 || WINDOWS_8
 using Color = Microsoft.Xna.Framework.Color;
-#elif FRB_MDX
-using Color = System.Drawing.Color;
-#else
-using Color = Microsoft.Xna.Framework.Graphics.Color;
-#endif
-
-#if FRB_XNA || SILVERLIGHT
-using Keys = Microsoft.Xna.Framework.Input.Keys;
-using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
-using Microsoft.Xna.Framework.Media;
-#endif
 
 // Generated Usings
 using TesisEconoFight.Entities;
 using FlatRedBall;
 using FlatRedBall.Screens;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Graphics.Animation;
 
 namespace TesisEconoFight.Screens
 {
-	public partial class CharSelect : Screen
+	public partial class CharSelect : FlatRedBall.Screens.Screen
 	{
 		// Generated Fields
 		#if DEBUG
@@ -58,11 +37,11 @@ namespace TesisEconoFight.Screens
 			Smith2 = 9
 		}
 		protected int mCurrentState = 0;
-		public VariableState CurrentState
+		public Screens.CharSelect.VariableState CurrentState
 		{
 			get
 			{
-				if (Enum.IsDefined(typeof(VariableState), mCurrentState))
+				if (System.Enum.IsDefined(typeof(VariableState), mCurrentState))
 				{
 					return (VariableState)mCurrentState;
 				}
@@ -107,11 +86,11 @@ namespace TesisEconoFight.Screens
 				}
 			}
 		}
-		private FlatRedBall.Math.Geometry.ShapeCollection EscogerChar;
-		private FlatRedBall.Scene SceneFile;
-		private FlatRedBall.Graphics.Animation.AnimationChainList SeleccionPersonaje;
+		protected FlatRedBall.Math.Geometry.ShapeCollection EscogerChar;
+		protected FlatRedBall.Scene SceneFile;
+		protected FlatRedBall.Graphics.Animation.AnimationChainList SeleccionPersonaje;
 		
-		private PositionedObjectList<Kursor> Cursores;
+		private FlatRedBall.Math.PositionedObjectList<TesisEconoFight.Entities.Kursor> Cursores;
 		private FlatRedBall.Sprite Sprite1;
 		private FlatRedBall.Sprite Sprite2;
 		public string Sprite1CurrentChainName
@@ -168,19 +147,20 @@ namespace TesisEconoFight.Screens
         {
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			if (!FlatRedBallServices.IsLoaded<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/charselect/escogerchar.shcx", ContentManagerName))
+			if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/charselect/escogerchar.shcx", ContentManagerName))
 			{
 			}
-			EscogerChar = FlatRedBallServices.Load<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/charselect/escogerchar.shcx", ContentManagerName);
-			if (!FlatRedBallServices.IsLoaded<FlatRedBall.Scene>(@"content/screens/charselect/scenefile.scnx", ContentManagerName))
+			EscogerChar = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Math.Geometry.ShapeCollection>(@"content/screens/charselect/escogerchar.shcx", ContentManagerName);
+			if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Scene>(@"content/screens/charselect/scenefile.scnx", ContentManagerName))
 			{
 			}
-			SceneFile = FlatRedBallServices.Load<FlatRedBall.Scene>(@"content/screens/charselect/scenefile.scnx", ContentManagerName);
-			if (!FlatRedBallServices.IsLoaded<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/charselect/seleccionpersonaje.achx", ContentManagerName))
+			SceneFile = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Scene>(@"content/screens/charselect/scenefile.scnx", ContentManagerName);
+			if (!FlatRedBall.FlatRedBallServices.IsLoaded<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/charselect/seleccionpersonaje.achx", ContentManagerName))
 			{
 			}
-			SeleccionPersonaje = FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/charselect/seleccionpersonaje.achx", ContentManagerName);
-			Cursores = new PositionedObjectList<Kursor>();
+			SeleccionPersonaje = FlatRedBall.FlatRedBallServices.Load<FlatRedBall.Graphics.Animation.AnimationChainList>(@"content/screens/charselect/seleccionpersonaje.achx", ContentManagerName);
+			Cursores = new FlatRedBall.Math.PositionedObjectList<TesisEconoFight.Entities.Kursor>();
+			Cursores.Name = "Cursores";
 			Sprite1 = SceneFile.Sprites.FindByName("cara hayek1");
 			Sprite2 = SceneFile.Sprites.FindByName("cara hayek2");
 			
@@ -197,6 +177,8 @@ namespace TesisEconoFight.Screens
 // Generated AddToManagers
 		public override void AddToManagers ()
 		{
+			EscogerChar.AddToManagers(mLayer);
+			SceneFile.AddToManagers(mLayer);
 			base.AddToManagers();
 			AddToManagersBottomUp();
 			CustomInitialize();
@@ -254,18 +236,20 @@ namespace TesisEconoFight.Screens
 				SceneFile.RemoveFromManagers(false);
 			}
 			
+			Cursores.MakeOneWay();
 			for (int i = Cursores.Count - 1; i > -1; i--)
 			{
 				Cursores[i].Destroy();
 			}
 			if (Sprite1 != null)
 			{
-				Sprite1.Detach(); SpriteManager.RemoveSprite(Sprite1);
+				FlatRedBall.SpriteManager.RemoveSprite(Sprite1);
 			}
 			if (Sprite2 != null)
 			{
-				Sprite2.Detach(); SpriteManager.RemoveSprite(Sprite2);
+				FlatRedBall.SpriteManager.RemoveSprite(Sprite2);
 			}
+			Cursores.MakeTwoWay();
 
 			base.Destroy();
 
@@ -278,16 +262,33 @@ namespace TesisEconoFight.Screens
 		{
 			bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
-			Sprite1CurrentChainName = "Hayek";
-			Sprite2CurrentChainName = "Hayek";
-			Sprite1Visible = true;
-			Sprite2Visible = true;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp ()
 		{
-			EscogerChar.AddToManagers(mLayer);
-			SceneFile.AddToManagers(mLayer);
+			CameraSetup.ResetCamera(SpriteManager.Camera);
+			AssignCustomVariables(false);
+		}
+		public virtual void RemoveFromManagers ()
+		{
+			for (int i = Cursores.Count - 1; i > -1; i--)
+			{
+				Cursores[i].Destroy();
+			}
+			if (Sprite1 != null)
+			{
+				FlatRedBall.SpriteManager.RemoveSpriteOneWay(Sprite1);
+			}
+			if (Sprite2 != null)
+			{
+				FlatRedBall.SpriteManager.RemoveSpriteOneWay(Sprite2);
+			}
+		}
+		public virtual void AssignCustomVariables (bool callOnContainedElements)
+		{
+			if (callOnContainedElements)
+			{
+			}
 			Sprite1CurrentChainName = "Hayek";
 			Sprite2CurrentChainName = "Hayek";
 			Sprite1Visible = true;
@@ -300,23 +301,23 @@ namespace TesisEconoFight.Screens
 			{
 				Cursores[i].ConvertToManuallyUpdated();
 			}
-			SpriteManager.ConvertToManuallyUpdated(Sprite1);
-			SpriteManager.ConvertToManuallyUpdated(Sprite2);
+			FlatRedBall.SpriteManager.ConvertToManuallyUpdated(Sprite1);
+			FlatRedBall.SpriteManager.ConvertToManuallyUpdated(Sprite2);
 		}
 		public static void LoadStaticContent (string contentManagerName)
 		{
 			if (string.IsNullOrEmpty(contentManagerName))
 			{
-				throw new ArgumentException("contentManagerName cannot be empty or null");
+				throw new System.ArgumentException("contentManagerName cannot be empty or null");
 			}
 			#if DEBUG
-			if (contentManagerName == FlatRedBallServices.GlobalContentManager)
+			if (contentManagerName == FlatRedBall.FlatRedBallServices.GlobalContentManager)
 			{
 				HasBeenLoadedWithGlobalContentManager = true;
 			}
 			else if (HasBeenLoadedWithGlobalContentManager)
 			{
-				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
+				throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
 			}
 			#endif
 			CustomLoadStaticContent(contentManagerName);
@@ -333,7 +334,7 @@ namespace TesisEconoFight.Screens
 				mLoadingState = value;
 			}
 		}
-		public Instruction InterpolateToState (VariableState stateToInterpolateTo, double secondsToTake)
+		public FlatRedBall.Instructions.Instruction InterpolateToState (VariableState stateToInterpolateTo, double secondsToTake)
 		{
 			switch(stateToInterpolateTo)
 			{
@@ -354,9 +355,9 @@ namespace TesisEconoFight.Screens
 				case  VariableState.Smith2:
 					break;
 			}
-			var instruction = new DelegateInstruction<VariableState>(StopStateInterpolation, stateToInterpolateTo);
-			instruction.TimeToExecute = TimeManager.CurrentTime + secondsToTake;
-			InstructionManager.Add(instruction);
+			var instruction = new FlatRedBall.Instructions.DelegateInstruction<VariableState>(StopStateInterpolation, stateToInterpolateTo);
+			instruction.TimeToExecute = FlatRedBall.TimeManager.CurrentTime + secondsToTake;
+			FlatRedBall.Instructions.InstructionManager.Add(instruction);
 			return instruction;
 		}
 		public void StopStateInterpolation (VariableState stateToStop)
@@ -387,7 +388,7 @@ namespace TesisEconoFight.Screens
 			#if DEBUG
 			if (float.IsNaN(interpolationValue))
 			{
-				throw new Exception("interpolationValue cannot be NaN");
+				throw new System.Exception("interpolationValue cannot be NaN");
 			}
 			#endif
 			switch(firstState)
@@ -492,18 +493,14 @@ namespace TesisEconoFight.Screens
 					}
 					break;
 			}
-		}
-		public override void MoveToState (int state)
-		{
-			this.CurrentState = (VariableState)state;
-		}
-		
-		/// <summary>Sets the current state, and pushes that state onto the back stack.</summary>
-		public void PushState (VariableState state)
-		{
-			this.CurrentState = state;
-			
-			ScreenManager.PushStateToStack((int)this.CurrentState);
+			if (interpolationValue < 1)
+			{
+				mCurrentState = (int)firstState;
+			}
+			else
+			{
+				mCurrentState = (int)secondState;
+			}
 		}
 		[System.Obsolete("Use GetFile instead")]
 		public static object GetStaticMember (string memberName)
